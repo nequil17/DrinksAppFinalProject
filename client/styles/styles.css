@@ -4,6 +4,7 @@
 /* Medium devices (tablets, 768px and up) */
 /* Large devices (desktops, 992px and up) */
 /* Extra large devices (large desktops, 1200px and up) */
+<<<<<<< Updated upstream
 /* Credit to bootsnipp.com for the css for the color graph */
 .colorgraph {
   height: 5px;
@@ -24,3 +25,5 @@
   position: fixed;
   top: 100px;
 }
+=======
+>>>>>>> Stashed changes
