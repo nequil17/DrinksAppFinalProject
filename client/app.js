@@ -11,13 +11,10 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
     .config(function ($routeProvider, ) {
         $routeProvider
             .when("/", {
-                templateUrl: "./views/login.html"
-            })
-            .when("/home", {
                 templateUrl: "./views/home.html"
             })
-            .when("/main", {
-                templateUrl: "./views/main.html"
+            .when("/login", {
+                templateUrl: "./views/login.html"
             })
             .when("/user", {
                 templateUrl: "./views/user.html"
