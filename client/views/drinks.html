@@ -1,5 +1,4 @@
 <div ng-controller="DrinksListController">
-    <p>dlkafjdslkjf</p>
     <div class="container">
         <div class="apps row">
             <div ng-repeat="drink in drinks" ng-click='getId(drink.id)'>
@@ -22,8 +21,8 @@
             </div>
         </div>
         
-
-
+<button ng-click="prevpage()">Prev</button>
+<button ng-click='nextpage()'>Next</button>
 
     </div>
 </div>
