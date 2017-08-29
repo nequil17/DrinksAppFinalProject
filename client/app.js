@@ -30,10 +30,11 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
             });
     })
 
-    .run(function () {
+    .run(function ($rootScope) {
         addb.init({
             appId: 14561
         });
+        $rootScope.searchresults=[]
     })
 
 DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope) {
@@ -93,13 +94,43 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
     }
 })
 DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
-    var search = document.getElementById('search').value
-    addb.drinks().quickSearch(search, function (query) {
+    console.log('in search controller')
+   
+    $scope.locate = function(){
+        console.log('search working')
+        
+    var input = document.getElementById('usersearch').value
+    console.log(input)
+    addb.drinks().tasting(input).loadSet(function(query) {
         $scope.$apply(function () {
-            $scope.search = query.result;
-            console.log($scope.search)
+            $scope.taste = query.result;
+            console.log($scope.taste)
+            $rootScope.searchresults.push($scope.taste)
+            
         });
+        
     });
+    addb.drinks().withIngredient(input).loadSet(function(query) {
+        $scope.$apply(function () {
+            $rootScope.ingredient = query.result;
+            console.log($scope.ingredient)
+            $rootScope.searchresults.push($scope.ingredient)
+        });
+})
+addb.drinks().load(input, function(shake){
+    $scope.$apply(function () {
+        $scope.name = shake.result;
+        console.log($scope.name)
+        $rootScope.searchresults.push($scope.name)
+    });
+})
+
+
+
+console.log($scope.searchresults)
+
+    }
+    
 })
 
 // window.addEventListener('load', function() {
