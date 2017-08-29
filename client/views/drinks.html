@@ -1,14 +1,15 @@
-<div ng-controller="DrinksController">
-    
+<div ng-controller="DrinksListController">
+    <p>dlkafjdslkjf</p>
 <div class="container">
    <div class="apps row">
-       <div ng-repeat="drink in drinks" class="col-md-4 listing" ng-click="singlePath(items.id)">
+       <div ng-repeat = "drink in drinks" >
+           {{drink}}
+            <h1 class="item-name">{{drink.isHot}}</h1>
+            
+
        
-       <br>
-       <div class="listing-text">
-           <span class="item-name">{{ items.name }}</span>
-           <span class="item-ingredients">{{ items.ingredients}}</span>
-       </div>
    </div>
 </div>
+
+</div>  
 </div>
