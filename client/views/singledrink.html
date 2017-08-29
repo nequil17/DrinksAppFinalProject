@@ -1,22 +1,25 @@
-<div ng-controller="SingleController">
+<div ng-controller="SingleDrinkController">
     <div class="container">
         <div class="single-item">
             <div class="col-md-6">
-                
             </div>
-                <h1 class="product-price">{{ oneItem.price  }}</h1>
-                <h1 class="product-title">{{ oneItem.title }}</h1><br/>
-                <h3 class="single-item-name"> {{oneItem.name}}</h3>
-                    <p class="item-description"> {{ oneItem.description}} </p>
-                        <ul>
-                        <li class="li-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </li>
-                        <li class="li-text">Ut varius mauris non pulvinar luctus.
-                        </li>
-                        <li class="li-text">Donec sollicitudin lorem id leo varius egestas.
-                        </li>
-                    </ul>
-                <button ng-click="saveToCart(oneItem)" class="btn btn-warning center">Add to cart</button>
-            </div>
+            <h3 class="single-item-name"> {{singledrink.name}}</h3>
+            <img ng-src='http://assets.absolutdrinks.com/drinks/300x300/{{singledrink.id}}.png' ></img>
+            <p>My Rating:</p>
+            <p>Community Rating: {{singledrink.rating}}</p>
+            <p class="item-description"> {{singledrink.story}} </p>
+            <h3>Ingredients</h3>
+            <p>Served in: {{singledrink.servedIn.id}}</p>
+            <p>{{singledrink.ingredients[0].textPlain}}</p>
+            <p>{{singledrink.ingredients[1].textPlain}}</p>
+            <p>{{singledrink.ingredients[2].textPlain}}</p>
+            <p>{{singledrink.ingredients[3].textPlain}}</p>
+            <p>{{singledrink.ingredients[4].textPlain}}</p>
+            <p>{{singledrink.ingredients[5].textPlain}}</p>
+            <p>{{singledrink.ingredients[6].textPlain}}</p>
+            <h3>Description</h3>
+            <p>{{singledrink.descriptionPlain}}</p>
+            <button>IVE DRANK DIS!</button>
         </div>
     </div>
+</div>
