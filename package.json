@@ -1,0 +1,26 @@
+{
+  "name": "FinalProject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "concurrently": "^3.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "concurrently \"httpserver\" \"less-watch-compiler styles dist main.less\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nequil17/DrinksAppFinalProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nequil17/DrinksAppFinalProject/issues"
+  },
+  "homepage": "https://github.com/nequil17/DrinksAppFinalProject#readme"
+}

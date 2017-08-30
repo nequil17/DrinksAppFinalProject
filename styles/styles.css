@@ -1,0 +1,53 @@
+.container {
+  min-height: 50vh;
+  text-align: center;
+}
+.container .drink {
+  text-align: center;
+  float: left;
+}
+.container .drink-img-reg {
+  border-radius: 50%;
+}
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query since this is the default in Bootstrap */
+/* Small devices (landscape phones, 576px and up) */
+/* Medium devices (tablets, 768px and up) */
+/* Large devices (desktops, 992px and up) */
+/* Extra large devices (large desktops, 1200px and up) */
+.login-container {
+  margin: 4em;
+}
+.jumbotron {
+  background-image: url("http://fungyung.com/data/out/3/63761364-alcohol-wallpapers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.jumbotron .jumbo-container {
+  position: relative;
+}
+@font-face {
+  font-family: Play;
+  src: url(https://fonts.google.com/specimen/Play);
+}
+#landing {
+  background-image: url(../assets/base-image.jpg);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+#hometextedit {
+  text-align: center;
+  font-family: Play;
+  font-size: 80px;
+}
+#homeloginbtn {
+  border: 1px black solid;
+  border-radius: 5px;
+  background-color: yellow;
+  height: 60px;
+  width: 150px;
+  text-align: center;
+  position: relative;
+}
