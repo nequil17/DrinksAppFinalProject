@@ -37,6 +37,10 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
         $rootScope.searchresults=[]
     })
 
+DrinkApp.controller("HomeController", ['$rootScope', function($rootScope){
+        
+}])
+
 DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope) {
     var skip = 0
     var take = 10
