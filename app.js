@@ -97,76 +97,114 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
 
 DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
     $scope.locate = function () {
+         $scope.loading = true;
+         var el=document.getElementById('spinner')
+        var filtered = [];
         var input = document.getElementById('usersearch').value
-        var fixedinput = input.replace(" ", "-")
+        var midinput = input.replace(" ", "-")
+       var fixedinput= midinput.charAt(0).toUpperCase() + midinput.slice(1)
         console.log(fixedinput)
-        addb.drinks().tasting(input).loadSet(function (query) {
+        // addb.drinks().tasting(fixedinput).loadSet(function (query) {
+        //     $scope.$apply(function () {
+        //         if (query.result.length != 0) {
+        //             // console.log(query.result)
+        //             // var parse1= JSON.parse(query.result[0])
+        //             filtered.push(query.result)
+        //         }
+        //     });
+        // });
+        // addb.drinks().withIngredient(fixedinput).loadSet(function (query) {
+        //     $scope.$apply(function () {
+        //         // $scope.ingredient = query.result;
+        //         // console.log($scope.ingredient)
+        //         if (query.result.length != 0) {
+        //             // var parsed1= JSON.parse(query.result[0])
+        //             // console.log(query.result)
+        //             filtered.push(query.result)
+        //         }
+        //     });
+        // })
+        // addb.drinks().load(fixedinput, function (shake) {
+        //     $scope.$apply(function () {
+        //         if (shake.result.length != 0) {
+        //             filtered.push(shake.result)
+        //         }
+        //     });
+        // })
+        addb.drinks('eg').skip(0).take(3000).loadSet(function (query) {
             $scope.$apply(function () {
-                if (query.result.length != 0) {
-                    console.log(query.result)
-                    // var parse1= JSON.parse(query.result[0])
-                    $rootScope.$apply.searchresults.push(query.result)
-                }
-            });
-        });
-        addb.drinks().withIngredient(input).loadSet(function (query) {
-            $scope.$apply(function () {
-                // $scope.ingredient = query.result;
-                // console.log($scope.ingredient)
-                if (query.result.length != 0) {
-                    $rootScope.$apply.searchresults.push(query.result)
-                }
-            });
-        })
-        addb.drinks().load(input, function (shake) {
-            $scope.$apply(function () {
-                if (shake.result.length != 0) {
-                    $rootScope.$apply.searchresults.push(shake.result)
-                }
-            });
-        })
-
-        // var options = {
-        //     type: $scope.type,
-        //     ingredient: $scope.ingredient
-        // }
-
-        // myFactory.getDrinks(options)
-
-         addb.drinks('eg').skip(0).take(300).loadSet(function (query) {
-            $scope.$apply(function () {
-                // var type = 'whisky';
-                var filtered = [];
-
-               var results = query.result;
-
-               results.forEach((r) => {
-                    r.ingredients.forEach((i) => {
-                        if (i.type === fixedinput) {
-                            filtered.push(r);
-                        }
+                       var results = query.result;
+                       results.forEach((r) => {
+                        r.ingredients.forEach((i) => {
+                            if (i.id === midinput) {
+                                filtered.push(r);
+                            }
+                        });
+                   });
+                   results.forEach((r) => {
+                                r.ingredients.forEach((i) => {
+                                    if (i.type === fixedinput) {
+                                        filtered.push(r);
+                                        console.log(i.type)
+                                    }
+                                });
+                           });
+                       results.forEach((r) => {
+                              
+                                if (r.name == fixedinput) {
+                                    filtered.push(r);
+                                }
+                       });
+                       console.log(filtered);
+                       $scope.loading = false;
                     });
-               });
-
-               console.log(filtered);
-            //     temparray=[]
-            // if(query.result){
-            //     for(x=0; x< query.result.length; x++){
-            //             for(y=0; y<query.result[x].ingredients.length; y++){
-            //                 if(input== query.result[x].ingredients[y].type ){
-            //                     // console.log(query.result[x])
-            //                         temparray.push(query.result[x])
-            //                 }
-            //             }
-            //     }
-            // }
-            // $rootScope.$apply.searchresults.push(temparray)
-            });
         })
+        // addb.drinks('eg').skip(0).take(30).loadSet(function (query) {
+        //     $scope.$apply(function () {
+        //         // var type = 'whisky';
+                
 
-        if ($rootScope.$apply.searchresults = []) {
-                alert('Your search '+ '"' +input+ '"' + ' returned no results! Please check your spelling and try again.')
-            }
+        //        var results = query.result;
+
+        //        results.forEach((r) => {
+        //             // r.name.forEach((i) => {
+        //                 console.log(r.name)
+        //                 if (r.name == fixedinput) {
+        //                     filtered.push(r);
+        //                 }
+        //             // });
+        //        });
+        //        console.log(filtered);
+        //     });
+        // })
+
+
+
+
+
+
+        //  addb.drinks('eg').skip(0).take(300).loadSet(function (query) {
+        //     $scope.$apply(function () {
+        //         // var type = 'whisky';
+                
+
+        //        var results = query.result;
+
+        //        results.forEach((r) => {
+        //             r.ingredients.forEach((i) => {
+        //                 if (i.type === fixedinput) {
+        //                     filtered.push(r);
+        //                     console.log(i.type)
+        //                 }
+        //             });
+        //        });
+        //        console.log(filtered);
+        //     });
+        // })
+
+        // if (filtered = []) {
+        //         alert('Your search '+ '"' +input+ '"' + ' returned no results! Please check your spelling and try again.')
+        //     }
     
 
 // addb.drinks().typeIngredient(input).loadSet(function(query) {
@@ -180,12 +218,11 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
 
 //     });
 // })
-console.log($rootScope.$apply.searchresults)
 $location.path('/searchresult/' + input)
 
 
     }
-    
+   
 })
 addtofavorites= function (){
 

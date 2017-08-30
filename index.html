@@ -32,6 +32,7 @@
                     <div ng-controller="SearchController">
                         <input id="usersearch"></input>
                         <button ng-click="locate()">Search</button>
+                        <div id ='spinner'class="spinner" ng-show="loading"></div>
                     </div>
                     <div class="collapse navbar-collapse" id="navLinks">
                         <ul class='nav navbar-nav dropdown navbar-right'>
@@ -48,6 +49,7 @@
                     </div>
                 </div>
             </nav>
+           
     <div ng-view ></div>
     <script src="app.js"></script>
 </body>
