@@ -99,7 +99,7 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
 })
 DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
     console.log('in search controller')
-   
+  
     $scope.locate = function(){
         console.log('search working')
         
@@ -107,42 +107,52 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
     console.log(input)
     addb.drinks().tasting(input).loadSet(function(query) {
         $scope.$apply(function () {
-            $scope.taste = query.result;
-            // console.log($scope.taste)
-            if($scope.taste = []){
-            console.log('empty')
-            return
+           
+            if(query.result.length != 0){
+                $rootScope.$apply.searchresults.push(query.result)
             }
-            $rootScope.$apply.searchresults.push($scope.taste)
         });
+        
         
     });
     addb.drinks().withIngredient(input).loadSet(function(query) {
         $scope.$apply(function () {
-            $scope.ingredient = query.result;
+            // $scope.ingredient = query.result;
             // console.log($scope.ingredient)
-            if($scope.ingredient = []){
-            console.log('empty')
-            return
+            if(query.result.length != 0){
+                $rootScope.$apply.searchresults.push(query.result)
             }
-            $rootScope.$apply.searchresults.push($scope.ingredient)
+            
+           
         });
+        
 })
 addb.drinks().load(input, function(shake){
     $scope.$apply(function () {
-        $scope.name = shake.result;
-        console.log($scope.name)
-        if($scope.name = []){
-       console.log('empty')
-       return
-        }
-        $rootScope.$apply.searchresults.push($scope.name)
+        // $scope.name = shake.result;
+        // console.log($scope.name)
+        
+if(shake.result.length != 0){
+    $rootScope.$apply.searchresults.push(shake.result)
+}
     });
 })
 
 
 
+// addb.drinks().typeIngredient(input).loadSet(function(query) {
+//     $scope.$apply(function () {
+//         $scope.ingredient = query.result;
+//         console.log($scope.ingredient)
+//         if(query.result.length != 0){
+//             $rootScope.$apply.searchresults.push(query.result)
+//         }
+        
+       
+//     });
+// })
 console.log($rootScope.$apply.searchresults)
+
 
     }
     
