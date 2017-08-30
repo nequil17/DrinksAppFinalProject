@@ -39,8 +39,17 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
 
 DrinkApp.controller("HomeController", ['$rootScope', function($rootScope){
         
-}])
+}]);
 
+DrinkApp.controller("userController", ['$rootScope', function($rootScope){
+
+}]);
+
+DrinkApp.controller("loginController", ['$rootScope', function($rootScope){
+
+}]);
+
+//You're doing a great job Dylan 
 DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope) {
     var skip = 0
     var take = 10
