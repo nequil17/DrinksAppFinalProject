@@ -1,5 +1,72 @@
-.spinner{
-    height: 100px;
-    width:100px;
+
+// SHAKER/LOAD ICON
+.content {
+    margin: 5% 0 0 0%;
+  }
+  .shake {
+      display:inline-block
+  }
+//   .loaderbg{
+//       background-color: red;
+//       border-radius: 50% 50%;
+//       height: 3em;
+//       width:3em;
+//   }
+  .loader {
     background-color: red;
+      height: 3em;
+      width: auto;
+      display:block;
+      position:relative;
+      -webkit-animation-name: spaceboots;
+      -webkit-animation-duration: 0.8s;
+      -webkit-transform-origin:50% 50%;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+  }
+  img{
+  display: block;
+  height: 250px;
+  width: 250px;
+  border-radius: 50% 50% 50% 50%;
+  }
+  h2.shake,
+  .shake.inline {
+      display:inline-block
+  }
+  h1,p,h2{
+    color:#FFF;
+  }
+  @-webkit-keyframes spaceboots {
+      0% { -webkit-transform: translate(3px, 1px) rotate(0deg); }
+      10% { -webkit-transform: translate(-1px, -3px) rotate(-5deg); }
+      20% { -webkit-transform: translate(-3px, 0px) rotate(5deg); }
+      30% { -webkit-transform: translate(0px, 3px) rotate(0deg); }
+      40% { -webkit-transform: translate(1px, -1px) rotate(5deg); }
+      50% { -webkit-transform: translate(-1px, 3px) rotate(-5deg); }
+      60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+      70% { -webkit-transform: translate(3px, 1px) rotate(-5deg); }
+      80% { -webkit-transform: translate(-1px, -1px) rotate(5deg); }
+      90% { -webkit-transform: translate(3px, 3px) rotate(0deg); }
+      100% { -webkit-transform: translate(1px, -3px) rotate(-5deg); }
+  }
+ 
+// REMOVE ICON IN SEARCH
+
+  span.deleteicon {
+    position: relative;
+    color:black
+}
+span.deleteicon span {
+    position: absolute;
+    display: block;
+    top: 5px;
+    right: 0px;
+    width: 16px;
+    height: 16px;
+    background: url('http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=4') 0 -690px;
+    cursor: pointer;
+}
+span.deleteicon input {
+    padding-right: 16px;
 }

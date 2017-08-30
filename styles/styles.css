@@ -9,39 +9,131 @@
 .container .drink-img-reg {
   border-radius: 50%;
 }
+.drinkpageback {
+  background-image: url('../assets/wildtextures_orange-wooden-boards-surface.jpg');
+}
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query since this is the default in Bootstrap */
+/* Small devices (landscape phones, 576px and up) */
+/* Medium devices (tablets, 768px and up) */
+/* Large devices (desktops, 992px and up) */
+/* Extra large devices (large desktops, 1200px and up) */
 .login-container {
   margin: 4em;
 }
 .jumbotron {
-  background-image: url("http://fungyung.com/data/out/3/63761364-alcohol-wallpapers.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.jumbotron .jumbo-container {
-  position: relative;
-}
-@font-face {
-  font-family: Play;
-  src: url(https://fonts.google.com/specimen/Play);
+  background-image: url("../assets/profile-header.jpg");
 }
 #landing {
   background-image: url(../assets/base-image.jpg);
   background-size: cover;
-  height: 100%;
-  width: 100%;
-  position: absolute;
+  height: 935px;
+  width: auto;
+  position: static;
 }
 #hometextedit {
   text-align: center;
   font-family: Play;
-  font-size: 80px;
+  font-size: 50px;
 }
-#homeloginbtn {
+.btn-default {
   border: 1px black solid;
   border-radius: 5px;
-  background-color: yellow;
+  background-color: black;
   height: 60px;
   width: 150px;
+}
+.button-container {
   text-align: center;
+}
+body {
+  padding-top: 70px;
+}
+nav {
+  opacity: 0.9;
+}
+.content {
+  margin: 5% 0 0 0%;
+}
+.shake {
+  display: inline-block;
+}
+.loader {
+  background-color: red;
+  height: 3em;
+  width: auto;
+  display: block;
   position: relative;
+  -webkit-animation-name: spaceboots;
+  -webkit-animation-duration: 0.8s;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+img {
+  display: block;
+  height: 250px;
+  width: 250px;
+  border-radius: 50% 50% 50% 50%;
+}
+h2.shake,
+.shake.inline {
+  display: inline-block;
+}
+h1,
+p,
+h2 {
+  color: #FFF;
+}
+@-webkit-keyframes spaceboots {
+  0% {
+    -webkit-transform: translate(3px, 1px) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: translate(-1px, -3px) rotate(-5deg);
+  }
+  20% {
+    -webkit-transform: translate(-3px, 0px) rotate(5deg);
+  }
+  30% {
+    -webkit-transform: translate(0px, 3px) rotate(0deg);
+  }
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(5deg);
+  }
+  50% {
+    -webkit-transform: translate(-1px, 3px) rotate(-5deg);
+  }
+  60% {
+    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate(3px, 1px) rotate(-5deg);
+  }
+  80% {
+    -webkit-transform: translate(-1px, -1px) rotate(5deg);
+  }
+  90% {
+    -webkit-transform: translate(3px, 3px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(1px, -3px) rotate(-5deg);
+  }
+}
+span.deleteicon {
+  position: relative;
+  color: black;
+}
+span.deleteicon span {
+  position: absolute;
+  display: block;
+  top: 5px;
+  right: 0px;
+  width: 16px;
+  height: 16px;
+  background: url('http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=4') 0 -690px;
+  cursor: pointer;
+}
+span.deleteicon input {
+  padding-right: 16px;
 }

@@ -44,7 +44,7 @@ DrinkApp.controller("loginController", ['$rootScope', function ($rootScope) {
 
 DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope) {
     var skip = 0
-    var take = 10
+    var take = 50
     addb.drinks('eg').skip(skip).take(take).loadSet(function (query) {
         $scope.$apply(function () {
             $scope.drinks = query.result;
@@ -97,7 +97,8 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
 
 DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
     $scope.locate = function () {
-         $scope.loading = true;
+         $scope.loader = true;
+         
          var el=document.getElementById('spinner')
         var filtered = [];
         var input = document.getElementById('usersearch').value
@@ -156,7 +157,8 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
                                 }
                        });
                        console.log(filtered);
-                       $scope.loading = false;
+                       $scope.loader = false;
+                       
                     });
         })
         // addb.drinks('eg').skip(0).take(30).loadSet(function (query) {
@@ -226,4 +228,10 @@ $location.path('/searchresult/' + input)
 })
 addtofavorites= function (){
 
+}
+
+clearinput =function(){
+    var input = document.getElementById('usersearch').value
+    console.log(input)
+    input = ''; 
 }
