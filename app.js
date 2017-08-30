@@ -1,13 +1,7 @@
-// var next= next +=10
-// var previous= previous -+10
-
 var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
-.config(function($sceProvider) {
-    // Completely disable SCE.  For demonstration purposes only!
-    // Do not use in new projects or libraries.
-    $sceProvider.enabled(false);
-  })
-  
+    .config(function ($sceProvider) {
+        $sceProvider.enabled(false);
+    })
     .config(function ($routeProvider, ) {
         $routeProvider
             .when("/", {
@@ -27,29 +21,27 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
             })
             .when("/drinks", {
                 templateUrl: "./views/drinks.html"
-            });
+            })
+            .when("/searchresult", {
+                templateUrl: "./views/searchresult.html"
+            })
     })
-
     .run(function ($rootScope) {
         addb.init({
             appId: 14561
         });
-        $rootScope.$apply.searchresults=[]
+        $rootScope.$apply.searchresults = []
     })
-
-DrinkApp.controller("HomeController", ['$rootScope', function($rootScope){
-        
+DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope) {
 }]);
 
-DrinkApp.controller("userController", ['$rootScope', function($rootScope){
-
+DrinkApp.controller("userController", ['$rootScope', function ($rootScope) {
 }]);
-
-DrinkApp.controller("loginController", ['$rootScope', function($rootScope){
+DrinkApp.controller("loginController", ['$rootScope', function ($rootScope) {
 
 }]);
 
-//You're doing a great job Dylan 
+
 DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope) {
     var skip = 0
     var take = 10
@@ -58,8 +50,6 @@ DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParam
             $scope.drinks = query.result;
             console.log(query.result)
         });
-
-
     });
     $scope.getId = function (id) {
         $location.path('/drink/' + id)
@@ -89,8 +79,6 @@ DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParam
         }
     }
 })
-
-
 DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routeParams, $location, $rootScope) {
     var id = $routeParams.id
     console.log($routeParams)
@@ -108,73 +96,54 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
 })
 DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
     console.log('in search controller')
-  
-    $scope.locate = function(){
+    $scope.locate = function () {
         console.log('search working')
-        
-    var input = document.getElementById('usersearch').value
-    console.log(input)
-    addb.drinks().tasting(input).loadSet(function(query) {
-        $scope.$apply(function () {
-           
-            if(query.result.length != 0){
-                $rootScope.$apply.searchresults.push(query.result)
-            }
+        var input = document.getElementById('usersearch').value
+        console.log(input)
+        addb.drinks().tasting(input).loadSet(function (query) {
+            $scope.$apply(function () {
+                if (query.result.length != 0) {
+                    $rootScope.$apply.searchresults.push(query.result)
+                }
+            });
         });
-        
-        
-    });
-    addb.drinks().withIngredient(input).loadSet(function(query) {
-        $scope.$apply(function () {
-            // $scope.ingredient = query.result;
-            // console.log($scope.ingredient)
-            if(query.result.length != 0){
-                $rootScope.$apply.searchresults.push(query.result)
-            }
-            
-           
-        });
-        
-})
-addb.drinks().load(input, function(shake){
-    $scope.$apply(function () {
-        // $scope.name = shake.result;
-        // console.log($scope.name)
-        
-if(shake.result.length != 0){
-    $rootScope.$apply.searchresults.push(shake.result)
-}
-    });
-})
+        addb.drinks().withIngredient(input).loadSet(function (query) {
+            $scope.$apply(function () {
+                if (query.result.length != 0) {
+                    $rootScope.$apply.searchresults.push(query.result)
+                }
+            });
+        })
+        addb.drinks().load(input, function (shake) {
+            $scope.$apply(function () {
+                if (shake.result.length != 0) {
+                    $rootScope.$apply.searchresults.push(shake.result)
+                }
+            });
+        })
+        if ($rootScope.$apply.searchresults = []) {
+            alert('Your search ' + '"' + input + '"' + ' returned no results! Please check your spelling and try again.')
+        }
 
 
+        // addb.drinks().typeIngredient(input).loadSet(function(query) {
+        //     $scope.$apply(function () {
+        //         $scope.ingredient = query.result;
+        //         console.log($scope.ingredient)
+        //         if(query.result.length != 0){
+        //             $rootScope.$apply.searchresults.push(query.result)
+        //         }
 
-// addb.drinks().typeIngredient(input).loadSet(function(query) {
-//     $scope.$apply(function () {
-//         $scope.ingredient = query.result;
-//         console.log($scope.ingredient)
-//         if(query.result.length != 0){
-//             $rootScope.$apply.searchresults.push(query.result)
-//         }
-        
-       
-//     });
-// })
-console.log($rootScope.$apply.searchresults)
 
+        //     });
+        // })
+
+        $location.path('/searchresult/' + input)
+        console.log($rootScope.$apply.searchresults)
 
     }
-    
+
 })
+addtofavorites = function () {
 
-// window.addEventListener('load', function() {
-//     document.querySelector('input[type="file"]').addEventListener('change', function() {
-//         if (this.files && this.files[0]) {
-//             var img = document.querySelector('img');  // $('img')[0]
-//             img.src = URL.createObjectURL(this.files[0]); // set src to file url
-//             img.onload = imageIsLoaded; // optional onload event listener
-//         }
-//     });
-//   });
-
-//   function imageIsLoaded(e) { alert(e); } 
+}
