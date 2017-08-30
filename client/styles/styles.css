@@ -18,6 +18,15 @@
 .login-container {
   margin: 4em;
 }
+.jumbotron {
+  background-image: url("http://fungyung.com/data/out/3/63761364-alcohol-wallpapers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.jumbotron .jumbo-container {
+  position: relative;
+  top: 50px;
+}
 #landing {
   background-image: url(../assets/base-image.jpg);
   background-size: cover;
