@@ -98,50 +98,51 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
 DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
     $scope.locate = function () {
         var input = document.getElementById('usersearch').value
-        console.log(input)
-        // addb.drinks().tasting(input).loadSet(function (query) {
-        //     $scope.$apply(function () {
-        //         if (query.result.length != 0) {
-        //             console.log(query.result)
-        //             // var parse1= JSON.parse(query.result[0])
-        //             $rootScope.$apply.searchresults.push(query.result)
-        //         }
-        //     });
-        // });
-        // addb.drinks().withIngredient(input).loadSet(function (query) {
-        //     $scope.$apply(function () {
-        //         // $scope.ingredient = query.result;
-        //         // console.log($scope.ingredient)
-        //         if (query.result.length != 0) {
-        //             $rootScope.$apply.searchresults.push(query.result)
-        //         }
-        //     });
-        // })
-        // addb.drinks().load(input, function (shake) {
-        //     $scope.$apply(function () {
-        //         if (shake.result.length != 0) {
-        //             $rootScope.$apply.searchresults.push(shake.result)
-        //         }
-        //     });
-        // })
+        var fixedinput = input.replace(" ", "-")
+        console.log(fixedinput)
+        addb.drinks().tasting(input).loadSet(function (query) {
+            $scope.$apply(function () {
+                if (query.result.length != 0) {
+                    console.log(query.result)
+                    // var parse1= JSON.parse(query.result[0])
+                    $rootScope.$apply.searchresults.push(query.result)
+                }
+            });
+        });
+        addb.drinks().withIngredient(input).loadSet(function (query) {
+            $scope.$apply(function () {
+                // $scope.ingredient = query.result;
+                // console.log($scope.ingredient)
+                if (query.result.length != 0) {
+                    $rootScope.$apply.searchresults.push(query.result)
+                }
+            });
+        })
+        addb.drinks().load(input, function (shake) {
+            $scope.$apply(function () {
+                if (shake.result.length != 0) {
+                    $rootScope.$apply.searchresults.push(shake.result)
+                }
+            });
+        })
 
-        var options = {
-            type: $scope.type,
-            ingredient: $scope.ingredient
-        }
+        // var options = {
+        //     type: $scope.type,
+        //     ingredient: $scope.ingredient
+        // }
 
-        myFactory.getDrinks(options)
+        // myFactory.getDrinks(options)
 
          addb.drinks('eg').skip(0).take(300).loadSet(function (query) {
             $scope.$apply(function () {
-                var type = 'whisky';
+                // var type = 'whisky';
                 var filtered = [];
 
                var results = query.result;
 
                results.forEach((r) => {
                     r.ingredients.forEach((i) => {
-                        if (i.type === type) {
+                        if (i.type === fixedinput) {
                             filtered.push(r);
                         }
                     });
