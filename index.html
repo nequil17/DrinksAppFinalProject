@@ -16,8 +16,38 @@
     <title>DrinkApp</title>
 </head>
 <body>
-        <div ng-controller="SearchController">
-                <input id='usersearch' ></input><button ng-click="locate()" >Search</button>
+        <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navLinks">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#/">
+                            <img alt="Brand" src="">
+                        </a>
+                    </div>
+                    <div ng-controller="SearchController">
+                        <input id="usersearch"></input>
+                        <button ng-click="locate()">Search</button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navLinks">
+                        <ul class='nav navbar-nav dropdown navbar-right'>
+                            <li> 
+                                <a href="#/user" class="link">Profile</a>
+                            </li>
+                            <li>
+                                <a href="#/drinks" class="link">All Drinks</a>
+                            </li>
+                            <li>
+                                <a href="#/achievements" class="link">Achievements</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
     <div ng-view ></div>
     <script src="app.js"></script>
 </body>
