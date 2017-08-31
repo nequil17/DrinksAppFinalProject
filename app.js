@@ -243,3 +243,22 @@ DrinkApp.controller('RandomController', function ($http, $scope, $routeParams, $
 console.log($rootScope.randomdrink)
     })
 })
+
+
+
+DrinkApp.controller('AchievementController', function ($http, $scope, $routeParams, $location, $rootScope) {
+    $rootScope.navbar = false;
+    
+// $scope.insertdata = function () {
+    $http.post("http://localhost:8080/api/Achievements", { 'user': $scope.user, 'message': $scope.message })
+        .success(function (data, status, headers, config) {
+            $scope.user = ''
+            $scope.message = ''
+            $route.reload();
+        });
+    $http.get("http://localhost:8080/api/Achievements")
+        .then(function (response) {
+            $scope.allChirps = response.data;
+        })
+// }
+})
