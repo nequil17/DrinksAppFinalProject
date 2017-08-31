@@ -242,6 +242,10 @@ DrinkApp.controller('RandomController', function ($http, $scope, $routeParams, $
 
 console.log($rootScope.randomdrink)
     })
+    $scope.video = function (video) {
+        return 'http://www.youtube.com/embed/' + video
+        console.log(video(single.videos[0].video))
+    }
 })
 
 
@@ -261,4 +265,31 @@ DrinkApp.controller('AchievementController', function ($http, $scope, $routePara
             $scope.allChirps = response.data;
         })
 // }
+})
+
+
+
+DrinkApp.controller('NavController', function ($http, $scope, $routeParams, $location, $rootScope) {
+$scope.clickrand= function(){
+    console.log('in random')
+    var random= []
+    var number= Math.floor(Math.random() * 1024) + 1 
+    
+    // console.log(searchparam)
+    addb.drinks('eg').skip(0).take(1024).loadSet(function (query) {
+    $scope.$apply(function () {
+        console.log(query.result)
+        var results = query.result;
+       
+    // console.log(random)
+    $rootScope.randomdrink= results[number]
+})
+
+console.log($rootScope.randomdrink)
+    })
+    $scope.video = function (video) {
+        return 'http://www.youtube.com/embed/' + video
+        console.log(video(single.videos[0].video))
+    }
+}
 })

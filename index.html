@@ -37,7 +37,7 @@
                     </form>
                 </div>
                 <div class='loaderbg'><img src="./assets/shaker.png"id='loader'class="loader" ng-show="loader"></div>
-                <div class="collapse navbar-collapse" id="navLinks">
+                <div ng-controller='NavController'class="collapse navbar-collapse" id="navLinks">
                     <ul class='nav navbar-nav dropdown navbar-right'>
                         <li> 
                             <a href="#/user" class="link">Profile</a>
@@ -45,6 +45,9 @@
                         <li>
                             <a href="#/drinks" class="link">All Drinks</a>
                         </li>
+                        <li ng-click='clickrand()'>
+                                <a href="#/random" class="link">Random Drink</a>
+                            </li>
                         <li>
                             <a href="#/achievements" class="link">Achievements</a>
                         </li>
