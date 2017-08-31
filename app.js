@@ -96,43 +96,70 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
 })
 
 DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
+    console.log($location.$$url)
+    $scope.loader = true;
+    var relquery=$location.$$url
+        console.log(relquery)
+     var el=document.getElementById('spinner')
+     var test=relquery.slice(14)
+     
+     var midrelquery= test.replace("%20", "-")
+     console.log(test, midrelquery, fixedquery)
+     var fixedquery= test.charAt(0).toUpperCase() + test.slice(1)
+    var filtered = [];
+    if($location.$$absUrl== ("http://localhost:8080/#/searchresult/"+ test)){
+        console.log('if working')
+        addb.drinks('eg').skip(0).take(3000).loadSet(function (query) {
+            
+            $scope.$apply(function () {
+                       var results = query.result;
+                       results.forEach((r) => {
+                        r.ingredients.forEach((i) => {
+                            if (i.id === midrelquery) {
+                                filtered.push(r);
+                            }
+                        });
+                   });
+                   results.forEach((r) => {
+                                r.ingredients.forEach((i) => {
+                                    if (i.type === fixedquery) {
+                                        filtered.push(r);
+                                        console.log(i.type)
+                                    }
+                                });
+                           });
+                       results.forEach((r) => {
+                              
+                                if (r.name == fixedquery) {
+                                    filtered.push(r);
+                                }
+                       });
+                       $scope.loader = false;
+                       $rootScope.searchresults= filtered
+                       console.log($rootScope.searchresults)
+                    });
+        })
+        
+    }
+    
     $scope.locate = function () {
          $scope.loader = true;
-         
+        var relquery=$location.$$url
+            console.log(relquery)
          var el=document.getElementById('spinner')
+         var midrelquery= relquery.replace("%20", "-")
+         var test=midrelquery.slice(14)
+         
+         var fixedquery= test.charAt(0).toUpperCase() + test.slice(1)
         var filtered = [];
         var input = document.getElementById('usersearch').value
         var midinput = input.replace(" ", "-")
+        
        var fixedinput= midinput.charAt(0).toUpperCase() + midinput.slice(1)
+       
         console.log(fixedinput)
-        // addb.drinks().tasting(fixedinput).loadSet(function (query) {
-        //     $scope.$apply(function () {
-        //         if (query.result.length != 0) {
-        //             // console.log(query.result)
-        //             // var parse1= JSON.parse(query.result[0])
-        //             filtered.push(query.result)
-        //         }
-        //     });
-        // });
-        // addb.drinks().withIngredient(fixedinput).loadSet(function (query) {
-        //     $scope.$apply(function () {
-        //         // $scope.ingredient = query.result;
-        //         // console.log($scope.ingredient)
-        //         if (query.result.length != 0) {
-        //             // var parsed1= JSON.parse(query.result[0])
-        //             // console.log(query.result)
-        //             filtered.push(query.result)
-        //         }
-        //     });
-        // })
-        // addb.drinks().load(fixedinput, function (shake) {
-        //     $scope.$apply(function () {
-        //         if (shake.result.length != 0) {
-        //             filtered.push(shake.result)
-        //         }
-        //     });
-        // })
         addb.drinks('eg').skip(0).take(3000).loadSet(function (query) {
+            
             $scope.$apply(function () {
                        var results = query.result;
                        results.forEach((r) => {
@@ -156,76 +183,19 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
                                     filtered.push(r);
                                 }
                        });
-                    //    console.log(filtered);
                        $scope.loader = false;
                        $rootScope.searchresults= filtered
                        console.log($rootScope.searchresults)
                     });
         })
-        // addb.drinks('eg').skip(0).take(30).loadSet(function (query) {
-        //     $scope.$apply(function () {
-        //         // var type = 'whisky';
-                
 
-        //        var results = query.result;
-
-        //        results.forEach((r) => {
-        //             // r.name.forEach((i) => {
-        //                 console.log(r.name)
-        //                 if (r.name == fixedinput) {
-        //                     filtered.push(r);
-        //                 }
-        //             // });
-        //        });
-        //        console.log(filtered);
-        //     });
-        // })
-
-
-
-
-
-
-        //  addb.drinks('eg').skip(0).take(300).loadSet(function (query) {
-        //     $scope.$apply(function () {
-        //         // var type = 'whisky';
-                
-
-        //        var results = query.result;
-
-        //        results.forEach((r) => {
-        //             r.ingredients.forEach((i) => {
-        //                 if (i.type === fixedinput) {
-        //                     filtered.push(r);
-        //                     console.log(i.type)
-        //                 }
-        //             });
-        //        });
-        //        console.log(filtered);
-        //     });
-        // })
-
-        // if (filtered = []) {
-        //         alert('Your search '+ '"' +input+ '"' + ' returned no results! Please check your spelling and try again.')
-        //     }
-    
-
-// addb.drinks().typeIngredient(input).loadSet(function(query) {
-//     $scope.$apply(function () {
-//         $scope.ingredient = query.result;
-//         console.log($scope.ingredient)
-//         if(query.result.length != 0){
-//             $rootScope.$apply.searchresults.push(query.result)
-//         }
-
-
-//     });
-// })
 $location.path('/searchresult/' + input)
 
 
     }
-   
+    $scope.getId = function (id) {
+        $location.path('/drink/' + id)
+    }
 })
 addtofavorites= function (){
 
