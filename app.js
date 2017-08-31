@@ -35,11 +35,7 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
         
     })
 DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope) {
-<<<<<<< HEAD
     $rootscope.hideNav = true;
-=======
-    $rootScope.hideNav = true;
->>>>>>> 59fff31aef9de9ba10e8df0fced00bb0d9b9a84d
 }]);
 
 DrinkApp.controller("userController", ['$rootScope', function ($rootScope) {
