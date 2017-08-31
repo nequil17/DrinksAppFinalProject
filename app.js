@@ -33,6 +33,7 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
         $rootScope.$apply.searchresults = []
     })
 DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope) {
+    $rootScope.hideNav = true;
 }]);
 
 DrinkApp.controller("userController", ['$rootScope', function ($rootScope) {
