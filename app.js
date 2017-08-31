@@ -31,8 +31,11 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
             appId: 14561
         });
         $rootScope.$apply.searchresults = []
+        $rootScope.$apply.achievements= []
+        
     })
 DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope) {
+    $rootscope.hideNav = true;
 }]);
 
 DrinkApp.controller("userController", ['$rootScope', function ($rootScope) {
