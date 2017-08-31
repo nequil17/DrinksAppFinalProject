@@ -21,8 +21,26 @@
 .login-container {
   margin: 4em;
 }
+.iframe {
+  width: 90%;
+  height: 65em;
+}
+.popup {
+  margin: 0 auto;
+  width: 80%;
+}
+.popup-title {
+  text-align: center;
+}
 .jumbotron {
   background-image: url("../assets/profile-header.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  left: 0;
+  height: 50%;
+  width: auto;
+  bottom: 20px;
 }
 #landing {
   background-image: url(../assets/base-image.jpg);
@@ -33,15 +51,20 @@
 }
 #hometextedit {
   text-align: center;
-  font-family: Play;
+  font-family: Lobster;
   font-size: 50px;
+  margin-top: 3em;
 }
 .btn-default {
   border: 1px black solid;
   border-radius: 5px;
-  background-color: black;
   height: 60px;
   width: 150px;
+  margin-top: 10em;
+}
+#homebtn {
+  background-color: yellow;
+  padding-top: 19px;
 }
 .button-container {
   text-align: center;

@@ -156,9 +156,10 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
                                     filtered.push(r);
                                 }
                        });
-                       console.log(filtered);
+                    //    console.log(filtered);
                        $scope.loader = false;
-                       
+                       $rootScope.$apply.searchresults= filtered
+                       console.log($rootScope.$apply.searchresults)
                     });
         })
         // addb.drinks('eg').skip(0).take(30).loadSet(function (query) {
