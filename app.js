@@ -6,6 +6,7 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
         $routeProvider
             .when("/", {
                 templateUrl: "./views/home.html"
+                
             })
             .when("/login", {
                 templateUrl: "./views/login.html"
@@ -39,17 +40,22 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
         
     })
 DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope) {
-    $rootscope.hideNav = true;
+    $rootScope.navbar = true;
 }]);
 
 DrinkApp.controller("userController", ['$rootScope', function ($rootScope) {
+    $rootScope.navbar = false;
+    
 }]);
 DrinkApp.controller("loginController", ['$rootScope', function ($rootScope) {
-
+    $rootScope.navbar = false;
+    
 }]);
 
 
 DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope) {
+    $rootScope.navbar = false;
+    
     var skip = 0
     var take = 50
     addb.drinks('eg').skip(skip).take(take).loadSet(function (query) {
@@ -87,6 +93,8 @@ DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParam
     }
 })
 DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routeParams, $location, $rootScope) {
+    $rootScope.navbar = false;
+    
     var id = $routeParams.id
     console.log($routeParams)
     console.log(id)
@@ -103,6 +111,8 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
 })
 
 DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
+    $rootScope.navbar = false;
+    
     console.log($location.$$url)
     $scope.loader = true;
     var relquery=$location.$$url
@@ -214,6 +224,8 @@ clearinput =function(){
     input = ''; 
 }
 DrinkApp.controller('RandomController', function ($http, $scope, $routeParams, $location, $rootScope) {
+    $rootScope.navbar = false;
+    
     console.log('in random')
     var random= []
     var number= Math.floor(Math.random() * 1024) + 1 
