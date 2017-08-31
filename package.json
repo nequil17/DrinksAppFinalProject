@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "concurrently": "^3.5.0"
+    "concurrently": "^3.5.0",
+    "npm-http-server": "^4.3.0"
   },
   "devDependencies": {},
   "scripts": {
