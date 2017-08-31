@@ -22,7 +22,7 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
             .when("/drinks", {
                 templateUrl: "./views/drinks.html"
             })
-            .when("/searchresult", {
+            .when("/searchresult/:query", {
                 templateUrl: "./views/searchresult.html"
             })
     })
@@ -158,8 +158,8 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
                        });
                     //    console.log(filtered);
                        $scope.loader = false;
-                       $rootScope.$apply.searchresults= filtered
-                       console.log($rootScope.$apply.searchresults)
+                       $rootScope.searchresults= filtered
+                       console.log($rootScope.searchresults)
                     });
         })
         // addb.drinks('eg').skip(0).take(30).loadSet(function (query) {
