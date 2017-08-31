@@ -25,6 +25,9 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
             .when("/searchresult/:query", {
                 templateUrl: "./views/searchresult.html"
             })
+            .when("/random", {
+                templateUrl: './views/random.html'
+            })
     })
     .run(function ($rootScope) {
         addb.init({
@@ -32,6 +35,7 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
         });
         $rootScope.$apply.searchresults = []
         $rootScope.$apply.achievements= []
+        $rootScope.$apply.randomdrink=[]
         
     })
 DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope) {
@@ -112,7 +116,7 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
     var filtered = [];
     if($location.$$absUrl== ("http://localhost:8080/#/searchresult/"+ test)){
         console.log('if working')
-        addb.drinks('eg').skip(0).take(3000).loadSet(function (query) {
+        addb.drinks('eg').skip(0).take(1024).loadSet(function (query) {
             
             $scope.$apply(function () {
                        var results = query.result;
@@ -161,7 +165,7 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
        var fixedinput= midinput.charAt(0).toUpperCase() + midinput.slice(1)
        
         console.log(fixedinput)
-        addb.drinks('eg').skip(0).take(3000).loadSet(function (query) {
+        addb.drinks('eg').skip(0).take(1024).loadSet(function (query) {
             
             $scope.$apply(function () {
                        var results = query.result;
@@ -209,3 +213,21 @@ clearinput =function(){
     console.log(input)
     input = ''; 
 }
+DrinkApp.controller('RandomController', function ($http, $scope, $routeParams, $location, $rootScope) {
+    console.log('in random')
+    var random= []
+    var number= Math.floor(Math.random() * 1024) + 1 
+    
+    // console.log(searchparam)
+    addb.drinks('eg').skip(0).take(1024).loadSet(function (query) {
+    $scope.$apply(function () {
+        console.log(query.result)
+        var results = query.result;
+       
+    // console.log(random)
+    $rootScope.randomdrink= results[number]
+})
+
+console.log($rootScope.randomdrink)
+    })
+})
