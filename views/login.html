@@ -1,20 +1,38 @@
 <div ng-controller="loginController">
-        <div id="landinglogin">
-    <div class="login-container" id="loginlogincon">
-        <form action="#/user" method="POST">
-            <div class="form-group" id="loginformgrp">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email">
-            </div>
-            <div class="form-group" id="loginformgrp">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" minlength="6" maxlength="14" size="14" required>
-            </div>
-            <div class="checkbox">
-                <label id="btnchkbx"><input type="checkbox"> Remember me</label>
-            </div>
-            <button type="submit" href="#drinks" class="btn btn-primary btn-sm" style="margin-top: 2em">Submit</button>
-        </form>
+    <!--div class="login-container" id="loginlogincon">
+            <form>
+                <div class="form-group" id="loginformgrp">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="form-group" id="loginformgrp">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd" minlength="8" maxlength="14" size="14" required>
+                </div>
+                <div class="checkbox">
+                    <label id="btnchkbx"><input type="checkbox"> Remember me</label>
+                </div>
+                <a href="#/user"><button type="submit" href="#drinks" class="btn btn-primary btn-sm" style="margin-top: 2em">Submit</button></a>
+            </form>
+        </div>-->
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+            </form><!-- /form -->
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div><!-- /card-container -->
     </div>
-</div>
 </div>
