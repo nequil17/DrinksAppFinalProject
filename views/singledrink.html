@@ -1,13 +1,11 @@
 <div ng-controller="SingleDrinkController">
     <div class="container">
         <div class="single-item">
-            <div class="col-md-6">
-            </div>
-            <h3 class="single-item-name"> {{singledrink.name}}</h3>
-            <img ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{singledrink.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'" ></img>
-            <p>My Rating:</p>
-            <p>Community Rating: {{singledrink.rating}}</p>
+           
+            <h1 class="single-item-name"> {{singledrink.name}}</h1>
+            <img class='singlepicture' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{singledrink.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'" ></img>
             <p class="item-description"> {{singledrink.story}} </p>
+            <div class='Ingredients'>
             <h3>Ingredients</h3>
             <p>Served in: {{singledrink.servedIn.id}}</p>
             <p>{{singledrink.ingredients[0].textPlain}}</p>
@@ -17,16 +15,16 @@
             <p>{{singledrink.ingredients[4].textPlain}}</p>
             <p>{{singledrink.ingredients[5].textPlain}}</p>
             <p>{{singledrink.ingredients[6].textPlain}}</p>
-            
+            </div>
+            <div class='instructions'>
             <h3>Instructions</h3>
             <p>{{singledrink.descriptionPlain}}</p>
+            </div>
             <button>IVE DRANK DIS!</button>
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Video</button>
             
             <div class="modal fade popup" id="myModal" role="dialog">
                     <div class="modal-dialog">
-                    
-                      <!-- Modal content-->
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -39,7 +37,6 @@
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                       </div>
-            <!-- <iframe ng-src="{{OTHER  VIDEO}}"></iframe> -->
         </div>
     </div>
 </div>

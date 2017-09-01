@@ -39,8 +39,12 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
         $rootScope.$apply.randomdrink=[]
         
     })
-DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope) {
+DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope, $scope, $location) {
     $rootScope.navbar = true;
+    goToLogin = function(){
+        console.log('sldkfjdslj')
+     window.location= 'http://localhost:8080/#/login'
+    }
 }]);
 
 DrinkApp.controller("userController", ['$rootScope', function ($rootScope) {
@@ -176,7 +180,7 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
        
         console.log(fixedinput)
         addb.drinks('eg').skip(0).take(1024).loadSet(function (query) {
-            
+            console.log(query)
             $scope.$apply(function () {
                        var results = query.result;
                        results.forEach((r) => {

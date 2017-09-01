@@ -1,8 +1,12 @@
 #landing {
-    background-image: url(../assets/base-image.jpg);
-    height: 1010px;
-    width: auto;
+    background-image: url(../assets/barback.jpg);
+    min-height: 1010px;
+    width: 100%;
     margin-top: -70px;
+    height: 110vh;
+    background-position-x: center;
+    background-position-y: -59em;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 #hometextedit {
@@ -34,4 +38,42 @@
 
 .button-container {
     text-align: center;
+    // background-image: url('../assets/frame.png')
 }
+.homeback{
+    background-color: black
+}
+@font-face {
+    font-family: myFirstFont;
+    src: url(../assets/Eutemia.ttf);
+}
+.title{
+    font-family: myFirstFont;
+    font-size: 1790.7%;
+    text-align: center;
+    opacity: 0.8;
+    color: white;
+    position: absolute;
+    bottom: 30%;
+    left: 37%;
+    margin: 0 auto;
+}
+.titleback{
+    left: 31%;
+    opacity: 0.8;
+    position: relative;
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 11%;
+}
+.hometitlebox{
+    background-image: url('../assets/imageedit_12_4303100153.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    height:50%;
+    width:20%
+}
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.5); }
