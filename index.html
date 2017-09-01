@@ -16,7 +16,7 @@
         <title>DrinkApp</title>
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top ng-hide" ng-hide="navbar"  role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top  ng-hide navbaroverride" ng-hide="navbar"  role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navLinks">
@@ -26,20 +26,13 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#/">
-                        <img alt="Brand" src="">
+                       <div class='brandbox'> <img class='logo'alt="Brand" src="../assets/imageedit_12_4303100153.png"></div>
                     </a>
                 </div>
-                <div ng-controller="SearchController">
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="usersearch">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-xs" ng-click="locate()">Search</button>
-                    </form>
-                </div>
+                
                 <div class='loaderbg'><img src="./assets/shaker.png"id='loader'class="loader" ng-show="loader"></div>
-                <div ng-controller='NavController'class="collapse navbar-collapse" id="navLinks">
-                    <ul class='nav navbar-nav dropdown navbar-right'>
+                <div ng-controller='NavController'class="collapse navbar-collapse navbarselections" id="navLinks">
+                    <ul class='nav navbar-nav dropdown navbar-right '>
                         <li> 
                             <a href="#/user" class="link">Profile</a>
                         </li>
@@ -54,6 +47,14 @@
                         </li>
                     </ul>
                 </div>
+                <div class= 'largesearchbox'ng-controller="SearchController">
+                        <form class='largesearchbox'  >
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="usersearch">
+                            </div>
+                            <button type="submit" class="btn searchbutton btn-xs" ng-click="locate()">Search</button>
+                        </form>
+                    </div>
             </div>
         </nav>
         <div ng-view ></div>
