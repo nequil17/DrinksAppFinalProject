@@ -1,42 +1,57 @@
 <div ng-controller="SingleDrinkController">
-    <div class="container">
-        <div class="single-item">
-           
-            <h1 class="single-item-name"> {{singledrink.name}}</h1>
-            <img class='singlepicture' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{singledrink.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'" ></img>
-            <p class="item-description"> {{singledrink.story}} </p>
-            <div class='Ingredients'>
-            <h3>Ingredients</h3>
-            <p>Served in: {{singledrink.servedIn.id}}</p>
-            <p>{{singledrink.ingredients[0].textPlain}}</p>
-            <p>{{singledrink.ingredients[1].textPlain}}</p>
-            <p>{{singledrink.ingredients[2].textPlain}}</p>
-            <p>{{singledrink.ingredients[3].textPlain}}</p>
-            <p>{{singledrink.ingredients[4].textPlain}}</p>
-            <p>{{singledrink.ingredients[5].textPlain}}</p>
-            <p>{{singledrink.ingredients[6].textPlain}}</p>
-            </div>
-            <div class='instructions'>
-            <h3>Instructions</h3>
-            <p>{{singledrink.descriptionPlain}}</p>
-            </div>
-            <button>IVE DRANK DIS!</button>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Video</button>
-            
-            <div class="modal fade popup" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class=" popup-title modal-title">How to make a {{singledrink.name}}</h4>
-                        </div>
-                        <div class="modal-body">
-                                <iframe class='iframe' ng-src="{{video(singledrink.videos[0].video)}}"></iframe>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
+  <div class="container">
+    <div class="single-item">
+        <img class='singlepicture' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/{{singledrink.id}}.png'
+          onerror="this.src='./assets/imageedit_1_2192624896.png'"></img>
+      <h1 class="single-item-name  singletitle"> {{singledrink.name}}</h1>
+      <h1 class='detail'>m</h1>
+      <p class="item-description singlefont "> {{singledrink.story}} </p>
+
+
+      <div class='Ingredients singlefont'>
+        <h3 class=" singlelarge">Ingredients</h3>
+        <h1 class='detailsmall'>m</h1>
+        <div class='ingredientsinner'>
+          <p class="singlefont">Served in: {{singledrink.servedIn.id}}</p>
+          <p class="singlefont">{{singledrink.ingredients[0].textPlain}}</p>
+          <p class="singlefont">{{singledrink.ingredients[1].textPlain}}</p>
+          <p class="singlefont">{{singledrink.ingredients[2].textPlain}}</p>
+          <p class="singlefont">{{singledrink.ingredients[3].textPlain}}</p>
+          <p class="singlefont">{{singledrink.ingredients[4].textPlain}}</p>
+          <p class="singlefont">{{singledrink.ingredients[5].textPlain}}</p>
+          <p class="singlefont">{{singledrink.ingredients[6].textPlain}}</p>
         </div>
+      </div>
+
+      
+      <div class='instructions singlefont'>
+        <h3 class="singlefont singlelarge">Instructions</h3>
+        <h1 class='detailsmall'>m</h1>
+        <p class="singlefont ingredientsinner">{{singledrink.descriptionPlain}}</p>
+      </div>
+
+
+
+
+
+
+      <button>IVE DRANK DIS!</button>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Video</button>
+
+      <div class="modal fade popup" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class=" popup-title modal-title">How to make a {{singledrink.name}}</h4>
+            </div>
+            <div class="modal-body">
+              <iframe class='iframe' ng-src="{{video(singledrink.videos[0].video)}}"></iframe>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
