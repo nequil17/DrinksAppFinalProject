@@ -39,6 +39,7 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
         $rootScope.$apply.randomdrink=[]
         
     })
+    
 DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope, $scope, $location) {
     $rootScope.navbar = true;
     goToLogin = function(){
@@ -297,3 +298,4 @@ console.log($rootScope.randomdrink)
     }
 }
 })
+       
