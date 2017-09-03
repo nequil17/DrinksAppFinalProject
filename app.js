@@ -61,7 +61,7 @@ DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParam
     $rootScope.navbar = false;
     
     var skip = 0
-    var take = 50
+    var take = 12
     addb.drinks('eg').skip(skip).take(take).loadSet(function (query) {
         $scope.$apply(function () {
             $scope.drinks = query.result;
@@ -72,8 +72,8 @@ DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParam
         $location.path('/drink/' + id)
     }
     $scope.nextpage = function () {
-        skip += 10
-        take += 10
+        skip += 12
+        take += 12
         addb.drinks('eg').skip(skip).take(take).loadSet(function (query) {
             $scope.$apply(function () {
                 $scope.drinks = query.result;
@@ -110,7 +110,7 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
     });
     $scope.video = function (video) {
         return 'http://www.youtube.com/embed/' + video
-        console.log(video(single.videos[0].video))
+        // console.log(video(single.videos[0].video))
     }
 })
 
@@ -248,7 +248,7 @@ console.log($rootScope.randomdrink)
     })
     $scope.video = function (video) {
         return 'http://www.youtube.com/embed/' + video
-        console.log(video(single.videos[0].video))
+        // console.log(video(single.videos[0].video))
     }
 })
 
@@ -293,7 +293,7 @@ console.log($rootScope.randomdrink)
     })
     $scope.video = function (video) {
         return 'http://www.youtube.com/embed/' + video
-        console.log(video(single.videos[0].video))
+        // console.log(video(single.videos[0].video))
     }
 }
 })

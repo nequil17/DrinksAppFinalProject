@@ -1,11 +1,73 @@
-.container{
+body{
+    background: black
+}
+
+.back{
+    background: black
+}
+.mycontainer{
     min-height: 50vh;
+    width: 100%;
     text-align: center;
+     height: 100vh;
+  background-repeat: no-repeat;
+  background-image: url('http://porterbarnwood.com/wp-content/uploads/2016/01/LuckyStrikeZincBar-2.jpg');
+background-position: center;
+// -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(#000), to(rgba(0,0,0,0)));
     .drink{
         text-align: center;
-        float: left
+        float: left;
+        width: 25%;
+        
+    }
+    .drinkspageback{
+        height: 100vh;
+  background-repeat: no-repeat;
+  background-image: url('http://porterbarnwood.com/wp-content/uploads/2016/01/LuckyStrikeZincBar-2.jpg');
+background-position: center;
+-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(#000), to(rgba(0,0,0,0)));
     }
     .drink-img-reg{
-        border-radius: 50% 
+        border-radius: 50% ;
+        background-image: url('../assets/imageedit_7_2140349891.png');
+        background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: 13vh;
     }
+    .manytitle{
+        font-family: mySecondFont;
+    color: black;
+    font-size: 7vh;
+    position: relative;
+    
+    top: 25vh;
+        -ms-transform: rotate(-21deg);
+    -webkit-transform: rotate(-21deg);
+    transform: rotate(-21deg);
+}
+    @media screen and (max-width: 1000px) {
+    .drink{
+        text-align: center;
+        float: left;
+        width: 33%;
+
+    }
+   
+}
+ @media screen and (max-width: 800px) {
+    .drink{
+        text-align: center;
+        float: left;
+        width: 50%;
+
+    }
+}
+@media screen and (max-width: 700px){
+    .drink{
+        text-align: center;
+        float: left;
+        width: 100%;
+
+    }
+}
 }

@@ -1,9 +1,9 @@
-<div ng-controller="DrinksListController" class='drinkpageback'>
-    <div class="container">
+<div ng-controller="DrinksListController" class='back' >
+    <div class="mycontainer drinkspageback">
         <div class="apps row">
-            <div class='col-lg-2'ng-repeat="drink in drinks" ng-click='getId(drink.id)'>
+            <div ng-repeat="drink in drinks" ng-click='getId(drink.id)'>
                 <div class='drink'>
-                    <h1 class="item-name ">{{drink.name}}</h1>
+                    <h1 class="item-name manytitle ">{{drink.name}}</h1>
                     <img class='drink-img-reg'ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{drink.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'"></img>
                     <!-- <p>{{drink.rating}}
                         <h3>Served In</h3>
@@ -17,7 +17,7 @@
 
                         <h3>Instructions</h3>
                         <p>{{drink.descriptionPlain}}</p> -->
-                        <button>Had one</button>
+                        <!--<button>Had one</button>-->
                 </div>
             </div>
         </div>
