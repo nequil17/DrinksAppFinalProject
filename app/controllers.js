@@ -1,46 +1,5 @@
-var DrinkApp = angular.module("DrinkApp", ['ngRoute'])
-    .config(function ($sceProvider) {
-        $sceProvider.enabled(false);
-    })
-    .config(function ($routeProvider, ) {
-        $routeProvider
-            .when("/", {
-                templateUrl: "./views/home.html"
-                
-            })
-            .when("/login", {
-                templateUrl: "./views/login.html"
-            })
-            .when("/user", {
-                templateUrl: "./views/user.html"
-            })
-            .when("/achievements", {
-                templateUrl: "./views/achievements.html"
-            })
-            .when("/drink/:id", {
-                templateUrl: "./views/singledrink.html"
-            })
-            .when("/drinks", {
-                templateUrl: "./views/drinks.html"
-            })
-            .when("/searchresult/:query", {
-                templateUrl: "./views/searchresult.html"
-            })
-            .when("/random", {
-                templateUrl: './views/random.html'
-            })
-    })
-    .run(function ($rootScope) {
-        addb.init({
-            appId: 14561
-        });
-        $rootScope.$apply.searchresults = []
-        $rootScope.$apply.achievements= []
-        $rootScope.$apply.randomdrink=[]
-        
-    })
-    
-DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope, $scope, $location) {
+var Cont= angular.module("controllers")
+Cont.controller("HomeController", ['$rootScope', function ($rootScope, $scope, $location) {
     $rootScope.navbar = true;
     goToLogin = function(){
         console.log('sldkfjdslj')
@@ -48,17 +7,17 @@ DrinkApp.controller("HomeController", ['$rootScope', function ($rootScope, $scop
     }
 }]);
 
-DrinkApp.controller("userController", ['$rootScope', function ($rootScope) {
+Cont.controller("userController", ['$rootScope', function ($rootScope) {
     $rootScope.navbar = false;
     
 }]);
-DrinkApp.controller("loginController", ['$rootScope', function ($rootScope) {
+Cont.controller("loginController", ['$rootScope', function ($rootScope) {
     $rootScope.navbar = false;
     
 }]);
 
 
-DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope) {
+Cont.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope) {
     $rootScope.navbar = false;
     $rootScope.loading=true
     console.log('hi')
@@ -102,7 +61,7 @@ DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParam
         }
     }
 })
-DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routeParams, $location, $rootScope) {
+Cont.controller('SingleDrinkController', function ($http, $scope, $routeParams, $location, $rootScope) {
     $rootScope.navbar = false;
     
     var id = $routeParams.id
@@ -120,7 +79,7 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
     }
 })
 
-DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
+Cont.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
     $rootScope.navbar = false;
     $rootScope.loading=true
     console.log($location.$$url)
@@ -233,7 +192,7 @@ clearinput =function(){
     console.log(input)
     input = ''; 
 }
-DrinkApp.controller('RandomController', function ($http, $scope, $routeParams, $location, $rootScope) {
+Cont.controller('RandomController', function ($http, $scope, $routeParams, $location, $rootScope) {
     $rootScope.navbar = false;
     
     console.log('in random')
@@ -260,7 +219,7 @@ console.log($rootScope.randomdrink)
 
 
 
-DrinkApp.controller('AchievementController', function ($http, $scope, $routeParams, $location, $rootScope) {
+Cont.controller('AchievementController', function ($http, $scope, $routeParams, $location, $rootScope) {
     $rootScope.navbar = false;
     
 // $scope.insertdata = function () {
@@ -279,7 +238,7 @@ DrinkApp.controller('AchievementController', function ($http, $scope, $routePara
 
 
 
-DrinkApp.controller('NavController', function ($http, $scope, $routeParams, $location, $rootScope) {
+Cont.controller('NavController', function ($http, $scope, $routeParams, $location, $rootScope) {
 $scope.clickrand= function(){
     var random= []
     var number= Math.floor(Math.random() * 1024) + 1 
