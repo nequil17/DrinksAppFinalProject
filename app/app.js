@@ -21,10 +21,13 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute', 'controllers', 'services']
                 templateUrl: "../views/singledrink.html"
             })
             .when("/drinks", {
-                templateUrl: "../views/drinks.html"
+                templateUrl: "../views/drinks.html",
+                reloadOnSearch: true
             })
             .when("/searchresult/:query", {
-                templateUrl: "../views/searchresult.html"
+                templateUrl: "../views/searchresult.html",
+                controller: 'SearchController',
+                reloadOnSearch: true
             })
             .when("/random", {
                 templateUrl: '../views/random.html'
@@ -32,12 +35,13 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute', 'controllers', 'services']
     })
     .run(function ($rootScope) {
         addb.init({
-            appId: 14561
+            appId: 14561 
         });
         $rootScope.$apply.searchresults = []
         $rootScope.$apply.achievements= []
         $rootScope.$apply.randomdrink=[]
         
     })
-    angular.module("controllers", [])
     angular.module('services', [])
+    angular.module("controllers", [])
+   

@@ -1,10 +1,10 @@
 <div ng-controller="DrinksListController" class='back' >
     <div class="mycontainer drinkspageback">
         <div class="apps row">
-            <div ng-repeat="drink in drinks" ng-click='getId(drink.id)'>
+            <div ng-repeat="drink in response.result" ng-click='getId(drink.id)'>
                 <div class='drink'>
                     <h1 class="item-name manytitle ">{{drink.name}}</h1>
-                    <img class='drink-img-reg'ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{drink.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'"></img>
+                    <img class='drink-img-reg'ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{drink.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'; this.classList += ' default-image'" />
                     <!-- <p>{{drink.rating}}
                         <h3>Served In</h3>
                         <p>{{drink.servedIn.text}}</p>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <button ng-click="prevpage()">Prev</button>
+        <button ng-show="hasPrevious" ng-click="prevpage()">Prev</button>
         <button ng-click='nextpage()'>Next</button>
 
     </div>

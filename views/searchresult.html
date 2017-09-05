@@ -1,12 +1,16 @@
-<div ng-controller="SearchController">
+<div >
     <div class="mycontainer drinkspageback">
-            <div class="apps row">
-<div ng-repeat="data in searchresults" ng-click='getId(data.id)'>
+        <div class="apps row">
+            <div ng-repeat="data in response.result" ng-click='getId(data.id)'>
 <div class='drink'>
     <h1 item-name manytitle>{{data.name}}</h1>
     <img class='drink-img-reg'ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{data.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'"></img>
 </div>
 </div>
-</div>
-</div>
+
+        </div>
+    </div>
+    <button ng-show="hasPrevious" ng-click="prevpage()">Prev</button>
+    <button ng-click='nextpage()'>Next</button>
+
 </div>

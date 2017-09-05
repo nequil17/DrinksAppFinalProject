@@ -32,7 +32,7 @@
                 </div>
 <!--                 
                 <div class='loaderbg'><img src="./assets/shaker.png"id='loader'class="loader" ng-show="loader"></div> -->
-                <div ng-controller='NavController'class="collapse navbar-collapse navbarselections" id="navLinks">
+                <div class="collapse navbar-collapse navbarselections" id="navLinks">
                     <ul class='nav navbar-nav dropdown navbar-right '>
                         <li> 
                             <a href="#/user" class="link">Profile</a>
@@ -48,7 +48,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class= 'largesearchbox'ng-controller="SearchController">
+                <div class= 'largesearchbox'ng-controller="navController">
                         <form class='largesearchbox'  >
                             <div class="form-group">
                                 <input type="text" class="form-control" id="usersearch">
@@ -58,12 +58,13 @@
                     </div>
             </div>
         </nav>
-        <div class='loadcontainer'>
-        <div class='loader' ng-show='loading'></div>
+        <div id='banner' class='loadcontainer'>
+        <div class='loader'  ng-show='loading'></div>
         </div>
         <div ng-view ></div>
         <script src="app/app.js"></script>
-        <script src='app/controllers.js'></script>
         <script src='app/services.js'></script>
+        <script src='app/controllers.js'></script>
+        
     </body>
 </html>
