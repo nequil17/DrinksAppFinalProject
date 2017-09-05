@@ -5,29 +5,29 @@ var DrinkApp = angular.module("DrinkApp", ['ngRoute', 'controllers', 'services']
     .config(function ($routeProvider, ) {
         $routeProvider
             .when("/", {
-                templateUrl: "./views/home.html"
+                templateUrl: "../views/home.html"
                 
             })
             .when("/login", {
-                templateUrl: "./views/login.html"
+                templateUrl: "../views/login.html"
             })
             .when("/user", {
-                templateUrl: "./views/user.html"
+                templateUrl: "../views/user.html"
             })
             .when("/achievements", {
-                templateUrl: "./views/achievements.html"
+                templateUrl: "../views/achievements.html"
             })
             .when("/drink/:id", {
-                templateUrl: "./views/singledrink.html"
+                templateUrl: "../views/singledrink.html"
             })
             .when("/drinks", {
-                templateUrl: "./views/drinks.html"
+                templateUrl: "../views/drinks.html"
             })
             .when("/searchresult/:query", {
-                templateUrl: "./views/searchresult.html"
+                templateUrl: "../views/searchresult.html"
             })
             .when("/random", {
-                templateUrl: './views/random.html'
+                templateUrl: '../views/random.html'
             })
     })
     .run(function ($rootScope) {
