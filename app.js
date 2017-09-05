@@ -60,21 +60,26 @@ DrinkApp.controller("loginController", ['$rootScope', function ($rootScope) {
 
 DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope) {
     $rootScope.navbar = false;
-    
+    $rootScope.loading=true
+    console.log('hi')
     var skip = 0
     var take = 12
     addb.drinks('eg').skip(skip).take(take).loadSet(function (query) {
         $scope.$apply(function () {
             $scope.drinks = query.result;
             console.log(query.result)
+            $rootScope.loading=false
         });
+       
+        
     });
     $scope.getId = function (id) {
         $location.path('/drink/' + id)
     }
     $scope.nextpage = function () {
         skip += 12
-        take += 12
+        // take += 12
+        console.log(skip, take)
         addb.drinks('eg').skip(skip).take(take).loadSet(function (query) {
             $scope.$apply(function () {
                 $scope.drinks = query.result;
@@ -84,9 +89,9 @@ DrinkApp.controller('DrinksListController', function ($http, $scope, $routeParam
         })
     }
     $scope.prevpage = function () {
-        if (skip >= 10) {
-            skip -= 10
-            take -= 10
+        if (skip >= 12) {
+            skip -= 12
+            // take -= 12
             addb.drinks('eg').skip(skip).take(take).loadSet(function (query) {
                 $scope.$apply(function () {
                     $scope.drinks = query.result;
@@ -117,9 +122,9 @@ DrinkApp.controller('SingleDrinkController', function ($http, $scope, $routePara
 
 DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $location, $rootScope) {
     $rootScope.navbar = false;
-    
+    $rootScope.loading=true
     console.log($location.$$url)
-    $scope.loader = true;
+   
     var relquery=$location.$$url
         console.log(relquery)
      var el=document.getElementById('spinner')
@@ -156,7 +161,7 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
                                     filtered.push(r);
                                 }
                        });
-                       $scope.loader = false;
+                       $rootScope.loading=false
                        $rootScope.searchresults= filtered
                        console.log($rootScope.searchresults)
                     });
@@ -165,7 +170,7 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
     }
     
     $scope.locate = function () {
-         $scope.loader = true;
+        $rootScope.loading=true
         var relquery=$location.$$url
             console.log(relquery)
          var el=document.getElementById('spinner')
@@ -205,7 +210,7 @@ DrinkApp.controller('SearchController', function ($http, $scope, $routeParams, $
                                     filtered.push(r);
                                 }
                        });
-                       $scope.loader = false;
+                       $rootScope.loading=false
                        $rootScope.searchresults= filtered
                        console.log($rootScope.searchresults)
                     });
@@ -276,25 +281,19 @@ DrinkApp.controller('AchievementController', function ($http, $scope, $routePara
 
 DrinkApp.controller('NavController', function ($http, $scope, $routeParams, $location, $rootScope) {
 $scope.clickrand= function(){
-    console.log('in random')
     var random= []
     var number= Math.floor(Math.random() * 1024) + 1 
     
-    // console.log(searchparam)
     addb.drinks('eg').skip(0).take(1024).loadSet(function (query) {
     $scope.$apply(function () {
-        console.log(query.result)
         var results = query.result;
        
-    // console.log(random)
     $rootScope.randomdrink= results[number]
 })
 
-console.log($rootScope.randomdrink)
     })
     $scope.video = function (video) {
         return 'http://www.youtube.com/embed/' + video
-        // console.log(video(single.videos[0].video))
     }
 }
 })

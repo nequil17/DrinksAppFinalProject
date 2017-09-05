@@ -30,8 +30,8 @@
                        <div class='brandbox'> <img class='logo'alt="Brand" src="../assets/imageedit_12_4303100153.png"></div>
                     </a>
                 </div>
-                
-                <div class='loaderbg'><img src="./assets/shaker.png"id='loader'class="loader" ng-show="loader"></div>
+<!--                 
+                <div class='loaderbg'><img src="./assets/shaker.png"id='loader'class="loader" ng-show="loader"></div> -->
                 <div ng-controller='NavController'class="collapse navbar-collapse navbarselections" id="navLinks">
                     <ul class='nav navbar-nav dropdown navbar-right '>
                         <li> 
@@ -58,6 +58,9 @@
                     </div>
             </div>
         </nav>
+        <div class='loadcontainer'>
+        <div class='loader' ng-show='loading'></div>
+        </div>
         <div ng-view ></div>
         <script src="app.js"></script>
     </body>
