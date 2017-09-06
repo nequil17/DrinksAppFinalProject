@@ -1,130 +1,136 @@
-.iframe{
-    width:90%;
-    height:65em;
-}
-.popup{
-    margin:0 auto;
-    width:80%;
-}
-.popup-title{
-    text-align: center
-}
-.single-item{
+.mysinglecontainer {
     position: relative;
+    min-height: 100vh;
     text-align: center;
-    top: 12vh;
-    left: 70vh;
-    background-image: url('../assets/oie_transparent (3).png');
-    background-size: cover;
     background-repeat: no-repeat;
-    width: 125vh;
-    height: 125vh;
+    background-image: url('../assets/wildtextures-seamless-wood-planks-II.jpg');
+    background-position: center;
+    background-size: cover;
+
+    .single-item {
+        position: relative;
+        text-align: center;
+
+        .napkin {
+            background-image: url('../assets/oie_transparent (3).png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            left: 35%;
+        }
+
+        .single-item-left {
+            float: left;
+            width: 50%;
+            position: relative;
+
+            .singlepicture{
+                height: 65em;
+                background-image: url('../assets/imageedit_7_2140349891.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position-y: 23vh;
+            } 
+
+            .singletitle {
+                text-shadow: 2px 3px lightgrey;
+                background-image: url(http://theresetgroup.org/wp-content/uploads/2015/08/brush-stroke.png);
+                background-size: cover;
+                background-position: center;
+                position: absolute;
+                font-family: mySecondFont;
+                color: black;
+                font-size: 4em;
+                top: 55%;
+                left: 0;
+                right: 0;
+                -ms-transform: rotate(-21deg);
+                -webkit-transform: rotate(-21deg);
+                transform: rotate(-21deg);
+            }
+        }
+
+        .single-item-right {
+            float: left;
+            width: 50%;
+            font-size: 3em;
+            position: relative;
+
+            .singleIngredients {
+                -ms-transform: rotate(-8deg);
+                -webkit-transform: rotate(-8deg);
+                transform: rotate(-8deg);
+                position: absolute;
+                top: 4em;
+                right: 2em;
+                max-width: 40%;
+
+                .ingredientsinner {
+                    position: relative;
+                }
+            }
+            
+            .detailsmall {
+                font-family: myThirdFont;
+                color: black;
+                position: relative;
+            }
+
+            .singleinstructions {
+                position: absolute;
+                top: 11em;
+                max-width: 40%;
+            }
+        }
+
+        .singlefont{
+            font-family: mySecondFont;
+            color: black;
+            // font-size: 4vh
+        }
+
+        .singlelarge{
+            font-family: mySecondFont;
+            color: black;
+            // font-size: 5vh
+        }
+    }
+
+    .popup{
+        margin:0 auto;
+        width:80%;
+
+        .popup-title{
+            text-align: center
+        }
+
+        .modal-body {
+            .videoWrapper {
+                position: relative;
+                padding-bottom: 56.25%; /* 16:9 */
+                padding-top: 25px;
+                height: 0;
+
+                iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
 }
-.singlepicture{
-    height: 94vh;
-    bottom: 46vh;
-    position: absolute;
-    left: -63vh;
-    background-image: url('../assets/imageedit_7_2140349891.png');
-        background-repeat: no-repeat;
-    background-size: contain;
-    background-position-y: 23vh;
-} 
+
 @font-face {
     font-family: mySecondFont;
     src: url(../assets/Ball-Pen-Regular.ttf);
 }
-.singlefont{
-    font-family: mySecondFont;
-    color: black;
-    font-size: 4vh
-}
-.singlelarge{
-    font-family: mySecondFont;
-    color: black;
-    font-size: 5vh
-}
-.singletitle{
-    text-shadow: 2px 3px lightgrey;
-     background-image: url(http://theresetgroup.org/wp-content/uploads/2015/08/brush-stroke.png);
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    font-family: mySecondFont;
-    color: black;
-    font-size: 7vh;
-    position: relative;
-    left: -27vh;
-    top: 12vh;
-    -ms-transform: rotate(-21deg);
-    -webkit-transform: rotate(-21deg);
-    transform: rotate(-21deg);
-}
-.singleIngredients{
-    margin-top:22vh;
-    width: max-content;;
-        position: relative;
-    top: -11vh;
-    left: 60vh;
-    -ms-transform: rotate(-8deg);
-    -webkit-transform: rotate(-8deg);
-    transform: rotate(-8deg)
-}
-// .singlering{
-//     background-image: url(../assets/imageedit_7_2140349891.png)
-// }
+
 @font-face {
     font-family: myThirdFont;
     src: url(../assets/Ball-Pen-Extra.ttf);
 }
-.detail{
-   font-family: myThirdFont;
-    color: black;
-    font-size: 7vh;
-    position: relative;
-    left: -27vh;
-    top: 10vh;
-    -ms-transform: rotate(-21deg);
-    -webkit-transform: rotate(-21deg);
-    transform: rotate(-21deg);
-}
-.singleinstructions{
-        width: 34vh;
-        position: relative;
-    top: -50vh;
-    left: 17vh;
-}
-.detailsmall{
-       font-family: myThirdFont;
-    color: black;
-    font-size: 5vh;
-    position: relative;
-    /* left: -27vh; */
-    top: -5vh;
-}
-.ingredientsinner{
-    position: relative;
-    top: -6vh;
-
-}
-.singlepen{
-        position: relative;
-    height: 100vh;
-    top: -178vh;
-    -ms-transform: rotate(7deg);
-    -webkit-transform: rotate(7deg);
-    transform: rotate(-113deg);
-}
- .mysinglecontainer{
-    position: relative;
-    top: -2vh;
-    min-height: 100vh;
-    // width: 100%;
-    text-align: center;
-    // height: 125vh;  
-    background-repeat: no-repeat;
-    background-image: url('http://www.wildtextures.com/wp-content/uploads/wildtextures-seamless-wood-planks-II.jpg');
-    background-position: center;
-    background-size: cover ;
-    // -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(#000), to(rgba(0,0,0,0)));
- }
