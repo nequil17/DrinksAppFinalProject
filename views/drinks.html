@@ -1,24 +1,9 @@
 <div ng-controller="DrinksListController" class='back' >
-    <div class="mycontainer drinkspageback">
+    <div class="mycontainer">
         <div class="apps row">
-            <div ng-repeat="drink in response.result" ng-click='getId(drink.id)'>
-                <div class='drink'>
-                    <h1 class="item-name manytitle ">{{drink.name}}</h1>
-                    <img class='drink-img-reg'ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{drink.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'; this.classList += ' default-image'" />
-                    <!-- <p>{{drink.rating}}
-                        <h3>Served In</h3>
-                        <p>{{drink.servedIn.text}}</p>
-                        <h2>Ingredients</h2>
-                        <p>{{drink.ingredients[0].textPlain}}</p>
-                        <p>{{drink.ingredients[1].textPlain}}</p>
-                        <p>{{drink.ingredients[2].textPlain}}</p>
-                        <p>{{drink.ingredients[3].textPlain}}</p>
-                        <p>{{drink.ingredients[4].textPlain}}</p>
-
-                        <h3>Instructions</h3>
-                        <p>{{drink.descriptionPlain}}</p> -->
-                        <!--<button>Had one</button>-->
-                </div>
+            <div ng-repeat="drink in response.result" class="drink" ng-click='getId(drink.id)'>
+                <h1 class="manytitle ">{{drink.name}}</h1>
+                <img class='drink-img-reg' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{drink.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'; this.classList += ' default-image'" />
             </div>
         </div>
 
