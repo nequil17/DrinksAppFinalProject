@@ -1,18 +1,18 @@
 <div ng-controller="SingleDrinkController">
-  <div class="container">
+  <div class="mysinglecontainer">
     <div class="single-item">
-        <img class='singlepicture' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/{{singledrink.id}}.png'
-          onerror="this.src='./assets/imageedit_1_2192624896.png'"></img>
-      <h1 class="single-item-name  singletitle"> {{singledrink.name}}</h1>
-      <h1 class='detail'>m</h1>
-      <p class="item-description singlefont "> {{singledrink.story}} </p>
+      <img class='singlepicture' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/{{singledrink.id}}.png'
+        onerror="this.src='./assets/imageedit_1_2192624896.png'"></img>
+      <h1 class="single-item-name  singletitle" ng-show='loadingdata'> {{singledrink.name}}</h1>
+      
+      <!--<p class="item-description singlefont "> {{singledrink.story}} </p>-->
 
 
       <div class='singleIngredients singlefont'>
-        <h3 class=" singlelarge">Ingredients</h3>
-        <h1 class='detailsmall'>m</h1>
+        <h3 class=" singlelarge" ng-show='loadingdata'>Ingredients</h3>
+        <h1 class='detailsmall' ng-show='loadingdata'>m</h1>
         <div class='ingredientsinner'>
-          <p class="singlefont">Served in: {{singledrink.servedIn.id}}</p>
+          <p class="singlefont" ng-show='loadingdata'>Served in: {{singledrink.servedIn.id}}</p>
           <p class="singlefont">{{singledrink.ingredients[0].textPlain}}</p>
           <p class="singlefont">{{singledrink.ingredients[1].textPlain}}</p>
           <p class="singlefont">{{singledrink.ingredients[2].textPlain}}</p>
@@ -25,18 +25,18 @@
 
 
       <div class='singleinstructions singlefont'>
-        <h3 class="singlefont singlelarge">Instructions</h3>
-        <h1 class='detailsmall'>m</h1>
+        <h3 class="singlefont singlelarge" ng-show='loadingdata'>Instructions</h3>
+        <h1 class='detailsmall' ng-show='loadingdata'>m</h1>
         <p class="singlefont ingredientsinner">{{singledrink.descriptionPlain}}</p>
       </div>
-      <img class='singlepen'ng-src="../assets/211566-ecom-retina-01.png.adapt.1500.1500.png"></img>
+      
 
 
 
 
 
-      <button>IVE DRANK DIS!</button>
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Video</button>
+      <span class='glyphicon glyphicon-ok-sign hadbutton' id='hadbutton'></span>
+      <span class="glyphicon glyphicon-play-circle playbutton" id='playbutton'data-toggle="modal" data-target="#myModal"></span>
 
       <div class="modal fade popup" id="myModal" role="dialog">
         <div class="modal-dialog">

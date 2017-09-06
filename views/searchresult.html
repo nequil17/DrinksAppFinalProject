@@ -1,10 +1,10 @@
 <div >
     <div class="mycontainer drinkspageback">
-        <div class="apps row">
-            <div ng-repeat="data in response.result" ng-click='getId(data.id)'>
+        <div class="appsrow">
+            <div ng-repeat="data in response.result track by $index" ng-click='getId(data.id)'>
 <div class='drink'>
-    <h1 item-name manytitle>{{data.name}}</h1>
-    <img class='drink-img-reg'ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{data.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'"></img>
+    <h1 class="item-name manytitle">{{data.name}}</h1>
+    <img class='drink-img-reg' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{data.id}}.png' onerror= "this.src='./assets/imageedit_1_2192624896.png'"></img>
 </div>
 </div>
 

@@ -11,14 +11,14 @@ Cont.controller("userController", ['$rootScope', function ($rootScope) {
     
 }]);
 Cont.controller("loginController", ['$rootScope', function ($rootScope) {
-    $rootScope.navbar = false;
+    $rootScope.navbar = true;
     
 }]);
 
 
 Cont.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope, addbService) {
     $rootScope.navbar = false;
-    $rootScope.loading = true;
+    // $rootScope.loader = true;
 
     var queries = $location.search(),
         initialPage;
@@ -34,7 +34,7 @@ Cont.controller('DrinksListController', function ($http, $scope, $routeParams, $
     addbService.getPage(Number(queries.page))
     .then(function(response) {
         $scope.response = response;
-        $rootScope.loading=false;        
+        // $rootScope.loading=false;        
         $scope.$apply();
     });
 
@@ -45,23 +45,32 @@ Cont.controller('DrinksListController', function ($http, $scope, $routeParams, $
     $scope.prevpage = function () {
         $location.search('page', --initialPage);
     }
+    $scope.getDrink= function(id){
+        $location.path( '/drink/'+id)
+    }
 })
 Cont.controller('SingleDrinkController', function ($http, $scope, $routeParams, $location, $rootScope, addbService) {
-    $rootScope.navbar = false;
-    
+    // $rootScope.navbar = false;
+     $rootScope.loading = true;
+     
+     
+    console.log($routeParams.id)
     addbService.getDrink($routeParams.id).then(function(result){
+        $rootScope.loadingdata=true;
         $scope.singledrink=result;
         $rootScope.loading=false;
+        
         $scope.$apply();
         console.log(result)
     })
+    $rootScope.loadingdata=false;
 })
 
 Cont.controller('SearchController', function ($http, $scope, $routeParams, $location, $route, $rootScope,addbService) {
     console.log('im in here');
     console.log($routeParams.query)
-    $rootScope.navbar = false;
-    $rootScope.loading=true
+    
+    
  
 //    addbService.getDrinks({ searchQuery: $routeParams.query, all: true  }).then(function(result){
 //     $scope.drinks=result;
@@ -80,12 +89,15 @@ Cont.controller('SearchController', function ($http, $scope, $routeParams, $loca
     }
 
     console.log('initial page', initialPage);
-
+  
     addbService.getPage(Number(initialPage), $routeParams.query)
+    
     .then(function(response) {
+        
         $scope.response= response;
-        $rootScope.loading=false;        
+            
         $scope.$apply();
+         $rootScope.loading=false;   
     });
 
     $scope.nextpage = function() {
@@ -100,23 +112,38 @@ Cont.controller('SearchController', function ($http, $scope, $routeParams, $loca
         var input = document.getElementById('usersearch').value
         $location.path('/searchresult/' + input)
     }
+     $rootScope.loading = false;
+     $rootScope.navbar = false;
 });
 
 Cont.controller('RandomController', function ($http, $scope, $routeParams, $location, $rootScope, addbService) {
-    $rootScope.navbar = false;
+     
+     $rootScope.loading =false;
+            
+
+    
     addbService.getRandom().then(function(result){
+         $rootScope.loadingdata=true;
         console.log('randomcont', result)
         $scope.randomdrink= result
-        $scope.$apply()
         
-    })
+        $scope.$apply()
+       
+    },$rootScope.loading = false)
+            $rootScope.loadingdata=false;
+
+    $rootScope.navbar = false;
 })
-Cont.controller('navController', function( $location, $scope){
+Cont.controller('navController', function( $location, $scope, $rootScope){
+   
     $scope.locate= function(){
+        
+        // $rootScope.loading = false;
         var input = document.getElementById('usersearch').value
         input.value=''
         $location.path('/searchresult/' + input).search('page', 1);
     }
+    
 })
 
 
