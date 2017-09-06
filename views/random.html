@@ -1,66 +1,49 @@
 <div ng-controller="RandomController">
-  <div class="mysinglecontainer">
-  <div class="single-item">
-    <h1 class=' single-item-name singletitle' ng-show='loadingdata'>{{randomdrink.name}}</h1>
-    <!--<h1 class='detail' ng-show='loadingdata'>m</h1>-->
-    <img class='randompicture' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/{{randomdrink.id}}.png'
-      onerror="this.src='./assets/clipart-glass-martini-201.png'"></img>
-
-
-
-
-
-    <div class='Ingredients singlefont'>
-      <h3 class=" singlelarge" ng-show='loadingdata'>Ingredients</h3>
-      <h1 class='detailsmall' ng-show='loadingdata'>m</h1>
-      <div class='ingredientsinner'>
-        <p class="singlefont"  ng-show='loadingdata' >Served in: {{randomdrink.servedIn.id}}</p>
-        <p class="singlefont" >{{randomdrink.ingredients[0].textPlain}}</p>
-        <p class="singlefont">{{randomdrink.ingredients[1].textPlain}}</p>
-        <p class="singlefont">{{randomdrink.ingredients[2].textPlain}}</p>
-        <p class="singlefont">{{randomdrink.ingredients[3].textPlain}}</p>
-        <p class="singlefont">{{randomdrink.ingredients[4].textPlain}}</p>
-        <p class="singlefont">{{randomdrink.ingredients[5].textPlain}}</p>
-        <p class="singlefont"> {{randomdrink.ingredients[6].textPlain}}</p>
+    <div class="mysinglecontainer">
+      <div class="single-item">
+        <div class="single-item-left">
+            <img class='singlepicture' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/{{randomdrink.id}}.png'
+            onerror="this.src='https://vignette2.wikia.nocookie.net/payday/images/5/59/Empty.png/revision/latest?cb=20131030195648'"/>
+            <h1 class="single-item-name  singletitle" ng-show='loadingdata'> {{randomdrink.name}}</h1>
+        </div>
+        <div class="napkin"></div>
+        <div class="single-item-right">
+            <div class='singleIngredients singlefont'>
+                <h3 class=" singlelarge" ng-show='loadingdata'>Ingredients</h3>
+                <h1 class='detailsmall' ng-show='loadingdata'>m</h1>
+                <div class='ingredientsinner'>
+                  <p class="singlefont" ng-show='loadingdata'>Served in: {{randomdrink.servedIn.id}}</p>
+                  <p class="singlefont" ng-repeat="ingredient in randomdrink.ingredients">{{ingredient.textPlain}}</p>
+                </div>
+            </div>
+            <div class='singleinstructions singlefont'>
+              <h3 class="singlefont singlelarge" ng-show='loadingdata'>Instructions</h3>
+              <h1 class='detailsmall' ng-show='loadingdata'>m</h1>
+              <p class="singlefont ingredientsinner">{{randomdrink.descriptionPlain}}</p>
+            </div>
+        </div>
+  
+        <span class='glyphicon glyphicon-ok-sign hadbutton' id='hadbutton'></span>
+        <span class="glyphicon glyphicon-play-circle playbutton" id='playbutton'data-toggle="modal" data-target="#myModal"></span>
       </div>
-    </div>
-
-
-    
-    <div class='randominstructions singlefont'>
-      <h3 class="singlefont singlelarge" ng-show='loadingdata'>Instructions</h3>
-      <h1 class='detailsmall'>m</h1>
-      <p class="singlefont ingredientsinner">{{randomdrink.descriptionPlain}}</p>
-    </div>
-
-
-
-
-
-
-
-
-    <span class="glyphicon glyphicon-ok-sign hadbutton" id='hadbutton'></span>
-    <span class="glyphicon glyphicon-play-circle playbutton" id='playbutton' data-toggle="modal" data-target="#myModal"></span>
-
-    <div class="modal fade popup" id="myModal" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class=" popup-title modal-title">How to make a {{randomdrink.name}}</h4>
-          </div>
-          <div class="modal-body">
-            <iframe class='iframe' ng-src="{{video(randomdrink.videos[0].video)}}"></iframe>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  
+      <div class="modal fade popup" id="myModal" role="dialog" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class=" popup-title modal-title">How to make a {{randomdrink.name}}</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="videoWrapper">
+                      <iframe width="560" height="349" ng-src="{{ randomdrink.iframeVideo }}" frameborder="0" allowfullscreen></iframe>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     </div>
-
-    </div>
-    
+  </div>

@@ -2,23 +2,44 @@
 //     padding-top: 70px;
 // }
 
+ 
+
 nav {
     opacity: 0.9;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(#000000), to(rgba(0, 0, 0, 0.6)));
+    position: relative;
+
+    ul {
+        padding-left: 20em !important;
+        position: absolute !important;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 2em;
+    }
+
+    .largesearchbox{
+        position: absolute !important;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+
+        input {
+            width: 15em !important;
+        }
+    }
 }
+
 nav.navbaroverride{
-    height: 11%;
     background: black;
     border: none;
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(#000000), to(rgba(0, 0, 0, 0.6)));
+    height: 8.4em;
+    line-height: 8.4em;
 }
 .link#link{
-    padding-left: 5em;
-    padding-right: 5em;
+    padding: 0 1em;
     font-family: mySecondFont;
     font-size: 4vh;
-    padding: .9em 1.6em;
     color: white;
-    padding-top: 1.2em;
 }
 .link#link:hover{
    background-image: url(http://theresetgroup.org/wp-content/uploads/2015/08/brush-stroke.png);
@@ -31,3 +52,24 @@ nav.navbaroverride{
     float: left
 }
 
+@media screen and (max-width: 1500px) {
+    .link#link{
+        font-size: 3vh;
+        padding: .9em 3.2em;
+        padding-top: 1.4em;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .link#link{
+        font-size: 2vh;
+        padding: .9em 3.8em;
+        padding-top: 1.4em;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .link#link{
+        font-size: 2vh;
+        padding: .9em 1.8em;
+        padding-top: 1.4em;
+    }
+}

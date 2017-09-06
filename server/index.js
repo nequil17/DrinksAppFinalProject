@@ -6,36 +6,58 @@ var shortid = require('shortid');
 var app = express();
 var clientPath = path.join(__dirname, '..', 'client');
 var jsonPath = path.join(__dirname, 'data.json');
+var firebase= require('firebase')
 app.use(express.static(clientPath));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.route('/api/achievements')
-    .get(function (req, res) {
-        res.sendFile(jsonPath);
+
+
+app.route('/profile')
+    .get(function(req, res){
+        console.log('alkdfjdsalkfjasdlkj')
+        var config = {
+            apiKey: "AIzaSyD39QF7JegQnXt-GDCZ2HYnUrEA9b9PLJs",
+            authDomain: "proof-7e795.firebaseapp.com",
+            databaseURL: "https://proof-7e795.firebaseio.com",
+            projectId: "proof-7e795",
+            storageBucket: "",
+            messagingSenderId: "503136018114"
+          };
+          firebase.initializeApp(config);
+        res.sendFile(jsonPath)
+
     })
-    .post(function (req, res) {
-        fs.readFile(jsonPath, 'utf-8', function (err, fileContents) {
-            if (err) {
-                res.status(500);
-            } else {
-                var chirps = JSON.parse(fileContents),
-                    chirp = req.body;
-                chirp.id = shortid.generate();
-                chirps.push(chirp);
-                fs.writeFile(jsonPath, JSON.stringify(chirps), function (err, success) {
-                    if (err) {
-                        res.sendStatus(500);
-                    } else {
-                        res.status(201);
-                        res.send(chirp);
-                        console.log(chirp)
-                    }
-                });
-            }
-        });
-    });
+
+
+
+
+// app.route('/api/achievements')
+//     .get(function (req, res) {
+//         res.sendFile(jsonPath);
+//     })
+//     .post(function (req, res) {
+//         fs.readFile(jsonPath, 'utf-8', function (err, fileContents) {
+//             if (err) {
+//                 res.status(500);
+//             } else {
+//                 var chirps = JSON.parse(fileContents),
+//                     chirp = req.body;
+//                 chirp.id = shortid.generate();
+//                 chirps.push(chirp);
+//                 fs.writeFile(jsonPath, JSON.stringify(chirps), function (err, success) {
+//                     if (err) {
+//                         res.sendStatus(500);
+//                     } else {
+//                         res.status(201);
+//                         res.send(chirp);
+//                         console.log(chirp)
+//                     }
+//                 });
+//             }
+//         });
+//     });
 
     // .delete(function (req, res) {
     //     fs.readFile(jsonPath, 'utf-8', function (err, fileContents) {

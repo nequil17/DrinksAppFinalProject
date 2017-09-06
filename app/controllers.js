@@ -17,8 +17,9 @@ Cont.controller("loginController", ['$rootScope', function ($rootScope) {
 
 
 Cont.controller('DrinksListController', function ($http, $scope, $routeParams, $location, $rootScope, addbService) {
+    $rootScope.loading=true; 
     $rootScope.navbar = false;
-    // $rootScope.loader = true;
+    
 
     var queries = $location.search(),
         initialPage;
@@ -34,8 +35,9 @@ Cont.controller('DrinksListController', function ($http, $scope, $routeParams, $
     addbService.getPage(Number(queries.page))
     .then(function(response) {
         $scope.response = response;
-        // $rootScope.loading=false;        
+        $rootScope.loading=false;        
         $scope.$apply();
+        
     });
 
     $scope.nextpage = function() {
@@ -49,7 +51,7 @@ Cont.controller('DrinksListController', function ($http, $scope, $routeParams, $
         $location.path( '/drink/'+id)
     }
 })
-Cont.controller('SingleDrinkController', function ($http, $scope, $routeParams, $location, $rootScope, addbService) {
+Cont.controller('SingleDrinkController', function ($http, $scope, $routeParams, $location, $rootScope, addbService, $sce) {
     // $rootScope.navbar = false;
      $rootScope.loading = true;
      
@@ -57,13 +59,28 @@ Cont.controller('SingleDrinkController', function ($http, $scope, $routeParams, 
     console.log($routeParams.id)
     addbService.getDrink($routeParams.id).then(function(result){
         $rootScope.loadingdata=true;
+
+        if (result.videos) {
+            result.videos.forEach(function(v) {
+                if (v.type === 'youtube') {
+                    result.iframeVideo = $sce.trustAsResourceUrl(formatVideoUrl(v.video));
+                }
+            });
+        }
+
         $scope.singledrink=result;
         $rootScope.loading=false;
         
         $scope.$apply();
         console.log(result)
-    })
+    });
+    
     $rootScope.loadingdata=false;
+
+
+    function formatVideoUrl(video) {
+        return 'http://www.youtube.com/embed/' + video;
+     }
 })
 
 Cont.controller('SearchController', function ($http, $scope, $routeParams, $location, $route, $rootScope,addbService) {
@@ -126,7 +143,6 @@ Cont.controller('RandomController', function ($http, $scope, $routeParams, $loca
          $rootScope.loadingdata=true;
         console.log('randomcont', result)
         $scope.randomdrink= result
-        
         $scope.$apply()
        
     },$rootScope.loading = false)
@@ -166,3 +182,4 @@ Cont.controller('navController', function( $location, $scope, $rootScope){
 
 
 
+ 
