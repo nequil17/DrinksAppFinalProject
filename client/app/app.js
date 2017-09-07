@@ -1,4 +1,4 @@
-var DrinkApp = angular.module("DrinkApp", ['ngRoute', 'controllers', 'services'])
+var DrinkApp = angular.module("DrinkApp", ['ngRoute', 'controllers', 'services', 'ui', 'angular.filter'])
     .config(function ($sceProvider) {
         $sceProvider.enabled(false);
     })

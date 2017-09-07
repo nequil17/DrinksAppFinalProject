@@ -1,3 +1,16 @@
 <div ng-controller="AchievementController">
-    dasfasdfsd
+
+    <div class="mycontainer">
+        <div class="appsrow">
+            <div ng-repeat="item in achievements | unique:'name'" class="drink" ng-click='getDrink(item.id)'>
+                <h1 class="manytitle">{{item.name}}</h1>
+                <img class='drink-img-reg' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{item.id}}.png'
+                    onerror="this.src='https://vignette2.wikia.nocookie.net/payday/images/5/59/Empty.png/revision/latest?cb=20131030195648'; this.classList += ' default-image'"/>
+            </div>
+        </div>
+
+        <h2 class="pagebutton" id='prev' ng-show="hasPrevious" ng-click="prevpage()">Prev</h2>
+        <h2 class="pagebutton" id='next' ng-click='nextpage()'>Next</h2>
+
+    </div>
 </div>
