@@ -20,11 +20,12 @@ Cont.controller("loginController", ['$rootScope', function ($rootScope) {
 }]);
 
 Cont.controller("AchievementController", ['$rootScope', '$http', '$scope', function ($rootScope, $http, $scope) {
+    $rootScope.loading=true; 
     $rootScope.navbar = false;
     $http.get("http://localhost:3000/api/achievements")
     .then(function (response) {
         $scope.achievements = response.data;
-    
+        $rootScope.loading=false; 
     })
     
 }]);
@@ -74,6 +75,7 @@ Cont.controller('SingleDrinkController', function ($http, $scope, $routeParams, 
         $http.post("http://localhost:3000/api/achievements", {'name': $scope.singledrink.name, 'id': $scope.singledrink.id })
             .success(function (data, status, headers, config) {
                console.log($scope.singledrink.id)
+               alert($scope.singledrink.name + 'was added to your collection!')
             })
         }
      
