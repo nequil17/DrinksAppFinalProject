@@ -1,19 +1,21 @@
 <div ng-controller="loginController">
-    <div class="container">
-        <div class="profile profile-container" style="margin-top:15em;">
-            <img id="profile-img" class="profile-img-card" ng-src="../assets/Dr_Rich_armchair.png" />
-            <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" action="#/user">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" minlength="8" maxlength="14" required>
-                <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="#/user">Sign in</button>
-            </form>
+    <div id="login-color" style="height: 100%; background:linear-gradient(to bottom right, rgb(52,33,12), whitesmoke);">
+        <div class="container" style="margin-bottom: 23em;">
+            <div class="profile profile-container" style="margin-top:15em;">
+                <img id="profile-img" class="profile-img-card" ng-src="../assets/Dr_Rich_armchair.png" />
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin" action="#/user">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" minlength="8" maxlength="14" required>
+                    <div id="remember" class="checkbox">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="#/user">Sign in</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
