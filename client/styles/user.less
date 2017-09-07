@@ -33,11 +33,11 @@ a {
   width: 80vh;
   float: right;
   margin-right: 11em;
-    background: rgba(255,255,255,0.4);
-    margin-top: 50em;
-    position: relative;
-    top: -50em;
-    left: -3em;
+  background: rgba(255,255,255,0.4);
+  margin-top: 50em;
+  position: relative;
+  top: -72em;
+  left: -3em;
 }
 .level{
   position: relative;
@@ -63,18 +63,21 @@ a {
 
 #levellabel{
   position: relative;
-  top: 4em;
-  left: -8em;
+  top: 3em;
+  left: -6em;
     
 }
 
 .achievesinner{
-    width: 80%;
-    margin: 0 auto;
-    height: auto;
-    text-align: center;
-    padding: 1em;
-    height: 20em;
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+  text-align: center;
+  padding: 1em;
+  max-height: 20em;
+  min-height: 9em;
+  overflow: scroll;
+  background: rgba(255,255,255,0.4)
 }
 
 .achievesmiddle{
@@ -86,4 +89,49 @@ a {
 
 #userPtextcolor {
     color: black;
+}
+.drink{
+  text-align: center;
+  float: left;
+  width: 25%;
+  position: relative;
+  transition: all .2s ease-in-out;
+   
+}
+.drink:hover{
+  
+//     -ms-transform: rotate(21deg);
+// -webkit-transform: rotate(21deg);
+// transform: rotate(21deg);
+transform: scale(1.5);
+z-index: 100000000000000   
+}
+.drink-img-small{
+  height: 4em;
+  width: auto;
+  border-radius: 50% ;
+  background-image: url('../assets/imageedit_7_2140349891.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: 2vh;
+}
+.singleuserfont{
+  font-family: mySecondFont;
+  color: black;
+  font-size:1.3em
+}
+.singlelargeuser{
+  font-family: mySecondFont;
+  color: black;
+  // font-size: 5vh
+  font-size: 3.3em;
+  background-image: url(http://theresetgroup.org/wp-content/uploads/2015/08/brush-stroke.png);
+  background-size: cover;
+  background-position: center;
+}
+.singleLevel{
+  font-family: mySecondFont;
+  color: black;
+  // font-size: 5vh
+  font-size: 3.3em;
 }

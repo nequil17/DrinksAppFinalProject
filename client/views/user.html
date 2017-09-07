@@ -1,4 +1,4 @@
-<div ng-scope="userController">
+<div ng-controller="userController">
     <div class="jumbotron" style="padding:0; opacity:0.9;">
         <img ng-src="../assets/whiskeyyyy.png" style="width:100%">
     </div>
@@ -16,40 +16,39 @@
             </div>
         </div>
         <div class='level'>
-            <h1 id='levellabel'>Level:</h1>
+            <h1 class="singleLevel" id='levellabel'>Level: {{(achievements.length|unique:'name') /10| number:0 }} </h1>
             <div class='w3-grey levelcontainer w3-round'>
-                Exp:
-                <div class="w3-blue w3-round innerlvl" style="height:24px;width:100%"></div>
+                Exp:{{achievements.length|unique:'name'}}
+                <div class="w3-blue w3-round innerlvl" style="height:24px;width: {{achievements.length|unique:'name'}}%"></div>
             </div>
         </div>
     </div>
     <div class="achieves">
         <div class='achievesmiddle'>
+                <h2 class="singlelargeuser">Favorite Drinks:</h2>
         <div class='achievesinner' style="font-size:20px;">
-                <h2 >Favorite Drinks:</h2>
-    
-                <ol>Jack Daniels</ol>
-                <ol>Bloody Mary</ol>
-                <ol>Gin and Tonic</ol>
-                <ol>Apple Margarita</ol>
-                <ol>Long Island Ice Tea</ol>
-                <ol>Whiskey Sour</ol>
-                <ol>Extra Dry Martini</ol>
-    
+                
+            <div ng-repeat="item in achievements | filter:{isFav:true} | unique:'name'">
+                <div class='drink'>
+                <h1 class='singleuserfont'>{{item.name}}</h1>
+                <img class='drink-img-small' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/{{item.id}}.png' onerror= "this.src='https://vignette2.wikia.nocookie.net/payday/images/5/59/Empty.png/revision/latest?cb=20131030195648'; this.classList += ' default-image'"></img>
+                </div>
+            </div>
         </div>
-
+        <h2 class="singlelargeuser">About Me:</h2>
                 <div class='achievesinner'>
-                        <h3>About Me:</h3>
+                        
                     <div id="userPtextcolor" style="font-size:20px; ">
 
-                            <ol>Nickname: Jack</ol>
-                            <ol>Favorite Bar: The Bloody Mary</ol>
-                            <ol>Favorite Bartender: Jessica</ol>
-                            <ol>Favorite Tip: 20%</ol>
-                            <ol>Favorite Song: "Knuck if you Buck"</ol>
+                            <ol class='singleuserfont'>Nickname: Jack</ol>
+                            <ol class='singleuserfont'>Favorite Bar: The Bloody Mary</ol>
+                            <ol class='singleuserfont'>Favorite Bartender: Jessica</ol>
+                            <ol class='singleuserfont'>Favorite Tip: 20%</ol>
+                            <ol class='singleuserfont'>Favorite Song: "Knuck if you Buck"</ol>
                             
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

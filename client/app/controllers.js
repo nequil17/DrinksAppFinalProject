@@ -6,7 +6,7 @@ Cont.controller("HomeController", ['$rootScope', function ($rootScope, $scope, $
     }
 }]);
 
-Cont.controller("userController", ['$rootScope', function ($rootScope) {
+Cont.controller("userController", ['$rootScope','$http','$scope', function ($rootScope, $http, $scope) {
     $rootScope.navbar = false;
     $http.get("http://localhost:3000/api/achievements")
     .then(function (response) {
@@ -72,11 +72,27 @@ Cont.controller('SingleDrinkController', function ($http, $scope, $routeParams, 
      $rootScope.loading = true;
 
      $scope.insertdata = function () {
-        $http.post("http://localhost:3000/api/achievements", {'name': $scope.singledrink.name, 'id': $scope.singledrink.id })
+         var isFav
+            console.log('insert')
+         var addFav =   confirm('Add this drink to your Favorites as well?')
+        if (addFav==true) {
+            isFav=true
+            $http.post("http://localhost:3000/api/achievements", {'name': $scope.singledrink.name, 'id': $scope.singledrink.id , 'isFav': isFav})
+            
             .success(function (data, status, headers, config) {
                console.log($scope.singledrink.id)
                alert($scope.singledrink.name + 'was added to your collection!')
             })
+        } else {
+            isFav=false
+            $http.post("http://localhost:3000/api/achievements", {'name': $scope.singledrink.name, 'id': $scope.singledrink.id , 'isFav': isFav})
+            
+            .success(function (data, status, headers, config) {
+               console.log($scope.singledrink.id)
+               alert($scope.singledrink.name + 'was added to your collection!')
+            })
+        }
+       
         }
      
     console.log($routeParams.id)
@@ -161,7 +177,29 @@ Cont.controller('SearchController', function ($http, $scope, $routeParams, $loca
 Cont.controller('RandomController', function ($http, $scope, $routeParams, $location, $rootScope, addbService) {
      
      $rootScope.loading =false;
-            
+
+     $scope.insertdata = function () {
+        var isFav
+           console.log('insert')
+        var addFav =   confirm('Add this drink to your Favorites as well?')
+       if (addFav==true) {
+           isFav=true
+           $http.post("http://localhost:3000/api/achievements", {'name': $scope.randomdrink.name, 'id': $scope.randomdrink.id , 'isFav': isFav})
+           
+           .success(function (data, status, headers, config) {
+              console.log($scope.randomdrink.id)
+              alert($scope.randomdrink.name + 'was added to your collection!')
+           })
+       } else {
+           isFav=false
+           $http.post("http://localhost:3000/api/achievements", {'name': $scope.randomdrink.name, 'id': $scope.randomdrink.id , 'isFav': isFav})
+           
+           .success(function (data, status, headers, config) {
+              console.log($scope.randomdrink.id)
+              alert($scope.randomdrink.name + 'was added to your collection!')
+           })
+       }
+    }
 
     
     addbService.getRandom().then(function(result){
@@ -175,6 +213,9 @@ Cont.controller('RandomController', function ($http, $scope, $routeParams, $loca
 
     $rootScope.navbar = false;
 })
+
+
+
 Cont.controller('navController', function( $location, $scope, $rootScope){
    
     $scope.locate= function(){
