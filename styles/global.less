@@ -54,15 +54,11 @@
 //   }
 // }
 .playbutton#playbutton{
-        position: absolute;
-     transform: translate(-9em, 6em);
+    float: left;
+    top: 4.4em;
+    left: -10.3em;
     font-size: 7em;
-    // top:-4em;
-    // z-index: 3000;
-    // display: block;
-    // width:16em;
-    color:lightgray;
-
+    color: lightgray
 }
 .playbutton:hover{
      background: white;
@@ -70,10 +66,12 @@
      
 }
 .hadbutton#hadbutton{
-    position: absolute;
-    transform: translate(-7.3em, 6em);
+    float: left;
+    top: 3em;
+    left: -9.3em;
     font-size: 7em;
-    color:lightgray;
+    color: lightgray;
+    
 
 }
 .hadbutton:hover{
@@ -116,4 +114,19 @@ right:93%;
     
         transform: scale(1.5)
     
+}
+.modal-content#modalcontent
+{
+    background-color: rgba(0,0,0,0.3);
+    top:15vh;
+}
+.modal-title#modaltitle{
+    font-size: 2.6em;
+    font-family: mySecondFont;
+    color: black;
+    opacity: 0.7;
+    background-image: url(http://theresetgroup.org/wp-content/uploads/2015/08/brush-stroke.png);
+    background-size: cover;
+    background-position: center;
+
 }

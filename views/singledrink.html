@@ -3,7 +3,7 @@
     <div class="single-item">
       <div class="single-item-left">
           <img class='singlepicture' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/{{singledrink.id}}.png'
-          onerror="this.src='https://vignette2.wikia.nocookie.net/payday/images/5/59/Empty.png/revision/latest?cb=20131030195648'"/>
+          onerror="this.src='https://vignette2.wikia.nocookie.net/payday/images/5/59/Empty.png/revision/latest?cb=20131030195648'; this.classList += ' default-image'"/>
           <h1 class="single-item-name  singletitle" ng-show='loadingdata'> {{singledrink.name}}</h1>
       </div>
       <div class="napkin"></div>
@@ -29,19 +29,17 @@
 
     <div class="modal fade popup" id="myModal" role="dialog" >
         <div class="modal-dialog">
-          <div class="modal-content">
+          <div class="modal-content" id='modalcontent'>
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class=" popup-title modal-title">How to make a {{singledrink.name}}</h4>
+              
+              <h4 class=" popup-title modal-title" id='modaltitle'>How to make a {{singledrink.name}}</h4>
             </div>
             <div class="modal-body">
                 <div class="videoWrapper">
                     <iframe width="560" height="349" ng-src="{{ singledrink.iframeVideo }}" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+            
           </div>
         </div>
       </div>

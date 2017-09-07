@@ -2,11 +2,9 @@ var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
-var shortid = require('shortid');
 var app = express();
 var clientPath = path.join(__dirname, '..', 'client');
 var jsonPath = path.join(__dirname, 'data.json');
-var firebase= require('firebase')
 app.use(express.static(clientPath));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -14,20 +12,15 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-app.route('/profile')
+app.route('/user')
     .get(function(req, res){
-        console.log('alkdfjdsalkfjasdlkj')
-        var config = {
-            apiKey: "AIzaSyD39QF7JegQnXt-GDCZ2HYnUrEA9b9PLJs",
-            authDomain: "proof-7e795.firebaseapp.com",
-            databaseURL: "https://proof-7e795.firebaseio.com",
-            projectId: "proof-7e795",
-            storageBucket: "",
-            messagingSenderId: "503136018114"
-          };
-          firebase.initializeApp(config);
-        res.sendFile(jsonPath)
-
+        
+        fs.readFile(jsonPath, 'utf-8', function (err, fileContents) {
+        //     res.sendFile(jsonPath);
+        // console.log(jsonPath)
+        var ach= JSON.parse(fileContents)
+        console.log(ach)
+        })
     })
 
 
