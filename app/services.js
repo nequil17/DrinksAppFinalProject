@@ -4,7 +4,7 @@ angular.module('services')
     
     this.getDrinks = function(options = { skip: null, take: null, searchQuery: null, all: null, pageNumber: 1 }){
         return new Promise(function(resolve, reject){
-            var take = options.take || 12,
+            var take = options.take || 8,
                 skip = options.skip || 0,
                 searchQuery = '';
 
@@ -41,7 +41,7 @@ angular.module('services')
                 if (searchQuery !== '' && options.all) {
                     var page = generatePage(options.pageNumber);
                     console.log(page)
-                    filtered = filtered.slice(page, page + 12);
+                    filtered = filtered.slice(page, page + 8);
                 }
                 
                 if (filtered.length === 0 && !!searchQuery) {
@@ -65,7 +65,7 @@ angular.module('services')
             options.searchQuery = searchQuery;
             options.all = true;
         } else {
-            options.take = 12;
+            options.take = 8;
             options.skip = generatePage(pageNumber);
         }
         
@@ -73,7 +73,7 @@ angular.module('services')
     };
 
    function generatePage(page){
-        return page == 1 ? 0 : (Number(page) -1) * 12;
+        return page == 1 ? 0 : (Number(page) -1) * 8;
    }
   
     this.getDrink= function(id) {

@@ -1,3 +1,13 @@
+singledrink{
+    div[ng-view]{
+    overflow-x: hidden;
+         overflow-y: hidden;
+         height: -webkit-fill-available;
+}
+}
+
+
+
 .mysinglecontainer {
     position: relative;
     min-height: 100vh;
@@ -26,10 +36,10 @@
             float: left;
             width: 50%;
             position: relative;
-            top: 9em;
-
+            top: 7em;
+            
             .singlepicture{
-                height: 65em;
+                height: 50em;
                 background-image: url('../assets/imageedit_7_2140349891.png');
                 background-repeat: no-repeat;
                 background-size: contain;
@@ -46,7 +56,7 @@
                 font-family: mySecondFont;
                 color: black;
                 font-size: 8em;
-                top: 55%;
+                top: 37%;
                 left: 0;
                 right: 0;
                 -ms-transform: rotate(-21deg);
@@ -70,12 +80,14 @@
                 -webkit-transform: rotate(-8deg);
                 transform: rotate(-8deg);
                 position: absolute;
-                top: 4em;
+                top: 3em;
                 right: 2em;
                 max-width: 40%;
 
                 .ingredientsinner {
                     position: relative;
+                    width:8em;
+                    // font-size: .8em
                 }
             }
             
@@ -83,26 +95,27 @@
                 font-family: myThirdFont;
                 color: black;
                 position: relative;
+                margin: 0
             }
 
             .singleinstructions {
                 position: absolute;
-                top:7em;
-                max-width: 40%;
+                top: 3em;
+                max-width: 45%;
             }
         }
 
         .singlefont{
             font-family: mySecondFont;
             color: black;
-            // font-size: 4vh
+            font-size:.9em
         }
 
         .singlelarge{
             font-family: mySecondFont;
             color: black;
             // font-size: 5vh
-            font-size: 1.6em;
+            font-size: 1.3em;
         }
     }
 

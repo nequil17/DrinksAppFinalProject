@@ -1,27 +1,29 @@
-var fs = require('fs');
-var path = require('path');
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var clientPath = path.join(__dirname, '..', 'client');
-var jsonPath = path.join(__dirname, 'data.json');
-app.use(express.static(clientPath));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-
-app.route('/user')
-    .get(function(req, res){
+// var fs = require('fs');
+// var path = require('path');
+// var express = require('express');
+// var bodyParser = require('body-parser');
+// var app = express();
+// var clientPath = path.join(__dirname, '..', 'app');
+// var jsonPath = path.join(__dirname, 'data.json');
+// app.use(express.static(clientPath));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// }));
+// app.get('*', function(req, res) {
+//   res.sendFile(path.resolve('../'))
+// })
+// console.log(clientPath)
+// app.route('views/user')
+//     .get(function(req, res){
         
-        fs.readFile(jsonPath, 'utf-8', function (err, fileContents) {
-        //     res.sendFile(jsonPath);
-        // console.log(jsonPath)
-        var ach= JSON.parse(fileContents)
-        console.log(ach)
-        })
-    })
+//         fs.readFile(jsonPath, 'utf-8', function (err, fileContents) {
+//         //     res.sendFile(jsonPath);
+//         // console.log(jsonPath)
+//         var ach= JSON.parse(fileContents)
+//         console.log(ach)
+//         })
+//     })
 
 
 
@@ -124,6 +126,6 @@ app.route('/user')
 //             }
 //         });
 //     });
-app.listen(3000, function () {
-    console.log('Listening on port 3000');
+app.listen(8080, function () {
+    console.log('Listening on port 8080');
 })
