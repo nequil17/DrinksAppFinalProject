@@ -8,11 +8,12 @@
     "bootstrap": "^3.3.7",
     "concurrently": "^3.5.0",
     "express": "^4.15.4",
+    "shortid": "latest",
     "npm-http-server": "^4.3.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "concurrently \"httpserver\" \"less-watch-compiler styles dist main.less\"",
+    "start": "concurrently \"node server/index.js\" \"less-watch-compiler client/styles client/dist client/styles/main.less\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -2,7 +2,7 @@ var Cont= angular.module("controllers")
 Cont.controller("HomeController", ['$rootScope', function ($rootScope, $scope, $location) {
     $rootScope.navbar = true;
     goToLogin = function(){
-     window.location= 'http://localhost:8080/#/login'
+     window.location= 'http://localhost:3000/#/login'
     }
 }]);
 
