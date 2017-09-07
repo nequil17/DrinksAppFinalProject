@@ -24,7 +24,9 @@ Cont.controller("AchievementController", ['$rootScope', '$http', '$scope', funct
     $rootScope.navbar = false;
     $http.get("http://localhost:3000/api/achievements")
     .then(function (response) {
+
         $scope.achievements = response.data;
+        $scope.$apply();
         $rootScope.loading=false; 
     })
     
@@ -81,7 +83,7 @@ Cont.controller('SingleDrinkController', function ($http, $scope, $routeParams, 
             
             .success(function (data, status, headers, config) {
                console.log($scope.singledrink.id)
-               alert($scope.singledrink.name + 'was added to your collection!')
+               alert($scope.singledrink.name + " was added to your collection! You've gained +1exp!")
             })
         } else {
             isFav=false
@@ -125,10 +127,11 @@ Cont.controller('SingleDrinkController', function ($http, $scope, $routeParams, 
 })
 
 Cont.controller('SearchController', function ($http, $scope, $routeParams, $location, $route, $rootScope,addbService) {
-    console.log('im in here');
-    console.log($routeParams.query)
+    $rootScope.loading = true;
     
-    
+    $scope.getDrink= function(id){
+       $location.path( '/drink/'+id)
+   }
  
 //    addbService.getDrinks({ searchQuery: $routeParams.query, all: true  }).then(function(result){
 //     $scope.drinks=result;
@@ -151,11 +154,9 @@ Cont.controller('SearchController', function ($http, $scope, $routeParams, $loca
     addbService.getPage(Number(initialPage), $routeParams.query)
     
     .then(function(response) {
-        
-        $scope.response= response;
-            
-        $scope.$apply();
-         $rootScope.loading=false;   
+        $scope.response = response;
+        $rootScope.loading=false;  
+        $scope.$apply(); 
     });
 
     $scope.nextpage = function() {
@@ -167,11 +168,12 @@ Cont.controller('SearchController', function ($http, $scope, $routeParams, $loca
     }
 
     $scope.locate= function(){
+        $rootScope.loading=true;
         var input = document.getElementById('usersearch').value
         $location.path('/searchresult/' + input)
     }
-     $rootScope.loading = false;
      $rootScope.navbar = false;
+    
 });
 
 Cont.controller('RandomController', function ($http, $scope, $routeParams, $location, $rootScope, addbService) {
@@ -208,7 +210,7 @@ Cont.controller('RandomController', function ($http, $scope, $routeParams, $loca
            
            .success(function (data, status, headers, config) {
               console.log($scope.randomdrink.id)
-              alert($scope.randomdrink.name + 'was added to your collection!')
+              alert($scope.randomdrink.name + " was added to your collection! You've gained +1exp!")
            })
        }
     }

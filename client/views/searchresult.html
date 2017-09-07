@@ -1,8 +1,8 @@
-<div >
+<div>
     <div class="mycontainer drinkspageback">
         <div class="appsrow">
-            <div ng-repeat="data in response.result track by $index" ng-click='getId(data.id)'>
-<div class='drink'>
+            <div ng-repeat="data in response.result track by $index">
+<div class='drink' ng-click='getDrink(data.id)'>
     <h1 class="item-name manytitle">{{data.name}}</h1>
     <img class='drink-img-reg' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{data.id}}.png' onerror= "this.src='https://vignette2.wikia.nocookie.net/payday/images/5/59/Empty.png/revision/latest?cb=20131030195648'; this.classList += ' default-image'"></img>
 </div>
