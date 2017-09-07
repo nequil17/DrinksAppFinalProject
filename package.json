@@ -13,7 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "concurrently \"node server/index.js\" \"less-watch-compiler client/styles client/dist client/styles/main.less\"",
+    "start": "concurrently \"node server/index.js\" \"less-watch-compiler client/styles client/dist main.less\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
