@@ -1,14 +1,15 @@
 <div ng-controller="DrinksListController" class='back' >
+       
     <div class="mycontainer">
+         
         <div class="appsrow">
+               
             <div ng-repeat="drink in response.result" class="drink" ng-click='getDrink(drink.id)'>
                 <h1 class="manytitle">{{drink.name}}</h1>
                 <img class='drink-img-reg' ng-src='http://assets.absolutdrinks.com/drinks/transparent-background-white/300x300/{{drink.id}}.png' onerror= "this.src='https://vignette2.wikia.nocookie.net/payday/images/5/59/Empty.png/revision/latest?cb=20131030195648'; this.classList += ' default-image'" />
             </div>
         </div>
-
         <h2 class="pagebutton" id='prev'ng-show="hasPrevious" ng-click="prevpage()">Prev</h2>
         <h2 class="pagebutton" id='next'ng-click='nextpage()'>Next</h2>
-
     </div>
 </div>

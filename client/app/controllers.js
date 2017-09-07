@@ -176,7 +176,19 @@ Cont.controller('SearchController', function ($http, $scope, $routeParams, $loca
 
 Cont.controller('RandomController', function ($http, $scope, $routeParams, $location, $rootScope, addbService) {
      
-     $rootScope.loading =false;
+     $rootScope.loading =true;
+     addbService.getRandom().then(function(result){
+        $rootScope.loadingdata=true;
+        $rootScope.loading=false;
+       console.log('randomcont', result)
+       $scope.randomdrink= result
+       $scope.$apply()
+      
+   })
+   
+          
+
+   $rootScope.navbar = false;
 
      $scope.insertdata = function () {
         var isFav
@@ -200,18 +212,9 @@ Cont.controller('RandomController', function ($http, $scope, $routeParams, $loca
            })
        }
     }
-
+    // $rootScope.loading = false
     
-    addbService.getRandom().then(function(result){
-         $rootScope.loadingdata=true;
-        console.log('randomcont', result)
-        $scope.randomdrink= result
-        $scope.$apply()
-       
-    },$rootScope.loading = false)
-            $rootScope.loadingdata=false;
-
-    $rootScope.navbar = false;
+    
 })
 
 

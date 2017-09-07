@@ -11,15 +11,24 @@ singledrink{
     position: relative;
     min-height: 100vh;
     text-align: center;
-    background-repeat: no-repeat;
-    background-image: url('../assets/wildtextures-seamless-wood-planks-II.jpg');
-    background-position: center;
-    background-size: cover;
-
+    // background-repeat: no-repeat;
+    // background-image: url('../assets/wildtextures-seamless-wood-planks-II.jpg');
+    // background-position: center;
+    // background-size: cover;
+    
     .single-item {
         position: relative;
         text-align: center;
 
+        @media screen and (max-width: 800px) {
+            
+             .single-item-left {
+                 float: left;
+                 width: 50%;
+                 position: relative;
+                 top: 1em;
+             }
+         }
         .napkin {
             background-image: url('../assets/oie_transparent (3).png');
             background-size: cover;
@@ -153,4 +162,19 @@ singledrink{
 @font-face {
     font-family: myThirdFont;
     src: url(../assets/Ball-Pen-Extra.ttf);
+}
+@media screen and (max-width: 2000px) {
+    .single-item-left {
+        // float: left;
+        width: 100%;}
+    
+}
+
+@media screen and (max-width: 700px){
+    .drink{
+        text-align: center;
+        float: left;
+        width: 100%;
+
+    }
 }
